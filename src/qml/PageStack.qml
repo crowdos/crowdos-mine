@@ -1,12 +1,13 @@
 import QtQuick 2.2
 import Crowd.Mine 1.0
+import "PageStack.js" as Cache
 
 QtObject {
     property Item window
     property Item currentPage
     property int depth
     readonly property bool busy: animation.running
-    property variant __cache: []
+//    property variant __cache: []
     property variant __stack: []
 
     function completeAnimation() {
@@ -104,7 +105,7 @@ QtObject {
             }
         } else if (typeof page == "string") {
             // String
-            var cached = __lookup(page)
+            var cached = Cache.__lookup(page)
             return push(cached, properties, immediate)
         } else {
             // An Item
@@ -132,7 +133,7 @@ QtObject {
         currentPage = comp.page
         return currentPage
     }
-
+/*
     function __lookup(page) {
             if (__cache == undefined) {
                 __cache = new Array
@@ -155,7 +156,7 @@ QtObject {
 
             return __cache[page];
     }
-
+*/
     property Component wrapper: Component {
         QtObject {
             property Item originalParent
