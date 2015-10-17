@@ -79,6 +79,10 @@ QtObject {
     }
 
     function push(page, properties, immediate) {
+        if (!page) {
+            console.log("Cannot push a non-existent page")
+            return
+        }
  // TODO: handle arrays
         if (busy) {
             console.log("An animation is already running")
