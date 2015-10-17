@@ -19,7 +19,7 @@ MouseArea {
     GlowItem {
         id: glow
         anchors.centerIn: parent
-        color: parent.busy || parent.checked || parent.pressed ? Theme.textColor : Theme.highlightTextColor
+        color: parent.busy || parent.checked || parent.down ? Theme.textColor : Theme.highlightTextColor
     }
 
     PropertyAnimation {
