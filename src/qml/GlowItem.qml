@@ -4,6 +4,8 @@ import QtGraphicalEffects 1.0
 
 Item {
     property alias color: rect.color
+    property alias spread: glow.spread
+
     width: 5
     height: 5
 
@@ -16,6 +18,7 @@ Item {
     }
 
     RectangularGlow {
+        id: glow
         glowRadius: 10
         spread: 0.1
         cornerRadius: rect.radius + glowRadius
