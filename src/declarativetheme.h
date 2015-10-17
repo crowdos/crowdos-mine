@@ -13,6 +13,9 @@ class DeclarativeTheme : public QObject {
   Q_PROPERTY(QColor highlightTextColor READ highlightTextColor NOTIFY colorsChanged);
   Q_PROPERTY(QColor backgroundColor READ backgroundColor NOTIFY colorsChanged);
   Q_PROPERTY(QColor highlightBackgroundColor READ highlightBackgroundColor NOTIFY colorsChanged);
+  Q_PROPERTY(int fontSize READ fontSize NOTIFY fontSizeChanged);
+  Q_PROPERTY(qreal fontSizeSmall READ fontSizeSmall NOTIFY fontSizeChanged);
+  Q_PROPERTY(qreal fontSizeLarge READ fontSizeLarge NOTIFY fontSizeChanged);
 
 public:
   static QObject *instance(QQmlEngine *engine, QJSEngine *scriptEngine);
@@ -23,8 +26,13 @@ public:
   QColor backgroundColor() const;
   QColor highlightBackgroundColor() const;
 
+  int fontSize() const;
+  qreal fontSizeSmall() const;
+  qreal fontSizeLarge() const;
+
 signals:
   void colorsChanged();
+  void fontSizeChanged();
 };
 
 #endif /* DECLARATIVE_THEME_H */

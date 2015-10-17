@@ -27,3 +27,15 @@ QColor DeclarativeTheme::backgroundColor() const {
 QColor DeclarativeTheme::highlightBackgroundColor() const {
   return QColor(0, 255, 255, 150);
 }
+
+int DeclarativeTheme::fontSize() const {
+  return 18;
+}
+
+qreal DeclarativeTheme::fontSizeSmall() const {
+  return 14;
+}
+
+qreal DeclarativeTheme::fontSizeLarge() const {
+  return 24;
+}
