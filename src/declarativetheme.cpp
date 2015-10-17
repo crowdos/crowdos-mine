@@ -32,10 +32,10 @@ int DeclarativeTheme::fontSize() const {
   return 18;
 }
 
-qreal DeclarativeTheme::fontSizeSmall() const {
+int DeclarativeTheme::fontSizeSmall() const {
   return 14;
 }
 
-qreal DeclarativeTheme::fontSizeLarge() const {
+int DeclarativeTheme::fontSizeLarge() const {
   return 24;
 }
