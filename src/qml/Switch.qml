@@ -2,11 +2,13 @@ import QtQuick 2.0
 import Crowd.Mine 1.0
 
 MouseArea {
-width: 64; height: 64 // TODO:
     readonly property bool down: pressed && containsMouse
     property bool automaticCheck: true
     property bool checked
     property bool busy
+
+    width: Theme.itemSize
+    height: Theme.itemSize
 
     onClicked: {
         if (automaticCheck) {
