@@ -22,8 +22,9 @@ MouseArea {
         }
     }
 
-    Image {
+    Icon {
         id: image
+        highlight: down
         anchors {
             left: parent.left
             verticalCenter: parent.verticalCenter
