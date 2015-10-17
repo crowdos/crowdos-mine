@@ -11,3 +11,19 @@ QObject *DeclarativeTheme::instance(QQmlEngine *engine, QJSEngine *scriptEngine)
 
   return new DeclarativeTheme;
 }
+
+QColor DeclarativeTheme::textColor() const {
+  return Qt::white;
+}
+
+QColor DeclarativeTheme::highlightTextColor() const {
+  return Qt::gray;
+}
+
+QColor DeclarativeTheme::backgroundColor() const {
+  return QColor(0, 255, 255, 50);
+}
+
+QColor DeclarativeTheme::highlightBackgroundColor() const {
+  return QColor(0, 255, 255, 150);
+}
