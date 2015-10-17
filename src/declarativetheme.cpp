@@ -39,3 +39,39 @@ int DeclarativeTheme::fontSizeSmall() const {
 int DeclarativeTheme::fontSizeLarge() const {
   return 24;
 }
+
+qreal DeclarativeTheme::iconSize() const {
+  return 64;
+}
+
+qreal DeclarativeTheme::iconSizeSmall() const {
+  return 48;
+}
+
+qreal DeclarativeTheme::iconSizeLarge() const {
+  return 80;
+}
+
+qreal DeclarativeTheme::itemSize() const {
+  return 100;
+}
+
+qreal DeclarativeTheme::itemSizeSmall() const {
+  return 75;
+}
+
+qreal DeclarativeTheme::itemSizeLarge() const {
+  return 125;
+}
+
+qreal DeclarativeTheme::paddingSize() const {
+  return 10;
+}
+
+qreal DeclarativeTheme::paddingSizeSmall() const {
+  return 5;
+}
+
+qreal DeclarativeTheme::paddingSizeLarge() const {
+  return 20;
+}
