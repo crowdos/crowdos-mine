@@ -13,15 +13,15 @@ QObject *DeclarativeTheme::instance(QQmlEngine *engine, QJSEngine *scriptEngine)
 }
 
 QColor DeclarativeTheme::textColor() const {
-  return Qt::gray;
+  return Qt::white;
 }
 
 QColor DeclarativeTheme::highlightTextColor() const {
-  return Qt::darkGray;
+  return Qt::yellow;
 }
 
 QColor DeclarativeTheme::backgroundColor() const {
-  return QColor(0, 255, 255, 50);
+  return QColor(255, 255, 0, 50);
 }
 
 QColor DeclarativeTheme::highlightBackgroundColor() const {
