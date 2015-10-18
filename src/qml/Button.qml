@@ -18,6 +18,7 @@ MouseArea {
         id: row
         spacing: Theme.paddingSize
         anchors.centerIn: parent
+
         Icon {
             id: image
             width: __hasIcon ? Theme.iconSize : 0
@@ -29,12 +30,13 @@ MouseArea {
         Label {
             id: label
             anchors.verticalCenter: parent.verticalCenter
+// TODO: why is this reversed??
             color: button.down ? button.color : button.highlightColor
         }
     }
 
     Rectangle {
-        color: parent.pressed ? parent.color : parent.highlightColor
+        color: label.color
         width: parent.width * 0.3
         height: Theme.paddingSize / 2
         radius: height / 4
