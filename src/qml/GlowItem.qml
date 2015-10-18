@@ -12,7 +12,7 @@ Item {
     Rectangle {
         id: rect
         anchors.fill: parent
-        color: "green"
+        color: Theme.textColor
         radius: width / 2
         opacity: parent.enabled ? 1.0 : 0.1
     }
