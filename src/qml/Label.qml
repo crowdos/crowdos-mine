@@ -4,4 +4,5 @@ import Crowd.Mine 1.0
 Text {
     font.pixelSize: Theme.fontSize
     color: Theme.textColor
+    textFormat: Text.PlainText
 }
