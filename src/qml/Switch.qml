@@ -2,10 +2,12 @@ import QtQuick 2.0
 import Crowd.Mine 1.0
 
 MouseArea {
+    id: root
     readonly property bool down: pressed && containsMouse
     property bool automaticCheck: true
     property bool checked
     property bool busy
+    property alias icon: image
 
     width: Theme.itemSize
     height: Theme.itemSize
@@ -16,10 +18,25 @@ MouseArea {
         }
     }
 
-    GlowItem {
-        id: glow
-        anchors.centerIn: parent
-        color: parent.busy || parent.checked || parent.down ? Theme.textColor : Theme.highlightTextColor
+    Column {
+        anchors {
+            fill: parent
+            margins: Theme.paddingSize
+        }
+
+        spacing: Theme.paddingSize
+
+        GlowItem {
+            id: glow
+            anchors.horizontalCenter: parent.horizontalCenter
+            overlayVisible: root.checked || root.down
+        }
+
+        Icon {
+            id: image
+            anchors.horizontalCenter: parent.horizontalCenter
+            highlight: root.checked || root.down
+        }
     }
 
     PropertyAnimation {
