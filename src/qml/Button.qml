@@ -30,8 +30,7 @@ MouseArea {
         Label {
             id: label
             anchors.verticalCenter: parent.verticalCenter
-// TODO: why is this reversed??
-            color: button.down ? button.color : button.highlightColor
+            color: button.down ? button.highlightColor : button.color
         }
     }
 
