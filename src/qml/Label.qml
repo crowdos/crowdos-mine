@@ -5,4 +5,5 @@ Text {
     font.pixelSize: Theme.fontSize
     color: Theme.textColor
     textFormat: Text.PlainText
+    wrapMode: Text.WordWrap
 }
