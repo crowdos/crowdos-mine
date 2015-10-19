@@ -29,15 +29,15 @@ QColor DeclarativeTheme::highlightBackgroundColor() const {
 }
 
 int DeclarativeTheme::fontSize() const {
-  return 18;
+  return 26;
 }
 
 int DeclarativeTheme::fontSizeSmall() const {
-  return 14;
+  return 22;
 }
 
 int DeclarativeTheme::fontSizeLarge() const {
-  return 24;
+  return 30;
 }
 
 qreal DeclarativeTheme::iconSize() const {
@@ -57,11 +57,11 @@ qreal DeclarativeTheme::itemSize() const {
 }
 
 qreal DeclarativeTheme::itemSizeSmall() const {
-  return 75;
+  return 80;
 }
 
 qreal DeclarativeTheme::itemSizeLarge() const {
-  return 125;
+  return 120;
 }
 
 qreal DeclarativeTheme::paddingSize() const {
