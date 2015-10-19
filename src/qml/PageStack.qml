@@ -168,7 +168,7 @@ QtObject {
     property variant animation: PropertyAnimation {
         property QtObject comp
         property: "x"
-        duration: 100
+        duration: Theme.animationDuration
         alwaysRunToEnd: true
         onRunningChanged: {
             if (!running && comp) {

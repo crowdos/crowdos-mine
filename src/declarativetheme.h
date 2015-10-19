@@ -25,6 +25,7 @@ class DeclarativeTheme : public QObject {
   Q_PROPERTY(qreal paddingSize READ paddingSize NOTIFY paddingSizeChanged);
   Q_PROPERTY(qreal paddingSizeSmall READ paddingSizeSmall NOTIFY paddingSizeChanged);
   Q_PROPERTY(qreal paddingSizeLarge READ paddingSizeLarge NOTIFY paddingSizeChanged);
+  Q_PROPERTY(qreal animationDuration READ animationDuration NOTIFY animationDurationChanged);
 
 public:
   static QObject *instance(QQmlEngine *engine, QJSEngine *scriptEngine);
@@ -51,12 +52,15 @@ public:
   qreal paddingSizeSmall() const;
   qreal paddingSizeLarge() const;
 
+  qreal animationDuration() const;
+
 signals:
   void colorsChanged();
   void fontSizeChanged();
   void iconSizeChanged();
   void itemSizeChanged();
   void paddingSizeChanged();
+  void animationDurationChanged();
 };
 
 #endif /* DECLARATIVE_THEME_H */
