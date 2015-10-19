@@ -35,7 +35,7 @@ MouseArea {
         Label {
             id: label
             anchors.verticalCenter: parent.verticalCenter
-            color: root.checked || root.down ? Theme.highlightTextColor : Theme.textColor
+            color: root.down ? Theme.highlightTextColor : Theme.textColor
         }
     }
 
