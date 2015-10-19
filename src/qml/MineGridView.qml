@@ -3,7 +3,7 @@ import Crowd.Mine 1.0
 
 GridView {
     pixelAligned: true
-    pressDelay: 100
+    pressDelay: Theme.actionThreshold
     boundsBehavior: Flickable.StopAtBounds
     // TODO:
 }

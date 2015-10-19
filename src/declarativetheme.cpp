@@ -79,3 +79,7 @@ qreal DeclarativeTheme::paddingSizeLarge() const {
 qreal DeclarativeTheme::animationDuration() const {
   return 100;
 }
+
+qreal DeclarativeTheme::actionThreshold() const {
+  return 100;
+}

@@ -21,11 +21,11 @@ MouseArea {
         target: pageStack.depth > 1 && backNavigation ? page : null
         axis: "XAxis"
         filterChildren: true
-        threshold: 50
+        threshold: Theme.actionThreshold / 2
     }
 
     onReleased: {
-        if (drag.active && page.x > 100) {
+        if (drag.active && page.x > Theme.actionThreshold) {
             pageStack.pop()
         } else {
             page.x = 0
