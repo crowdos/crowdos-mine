@@ -72,7 +72,7 @@ Item {
 //        pressDelay: 0
         y: handle.y + handle.height
         width: parent.width
-        height: actions.length > 4 ? Theme.itemSize * 4.5 : Theme.itemSize * 4
+        height: actions.length > 4 ? Theme.itemSize * 4.5 : Theme.itemSize * actions.length
         contentHeight: column.height
 
         Column {
