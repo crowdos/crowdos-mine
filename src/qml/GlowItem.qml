@@ -8,6 +8,7 @@ Item {
     property alias overlayColor: overlay.color
     property alias overlayVisible: overlay.visible
 
+    // TODO: this is hardcoded
     width: 5
     height: 5
 

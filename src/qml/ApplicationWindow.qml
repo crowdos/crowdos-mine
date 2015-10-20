@@ -1,4 +1,5 @@
 import QtQuick 2.2
+import Crowd.Mine 1.0
 
 Item {
     id: rootWindow
@@ -7,6 +8,12 @@ Item {
 
     property variant initialPage
     property PageStack pageStack: PageStack { window: rootWindow }
+
+    // TODO: This is temporary
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+    }
 
     Component.onCompleted: {
         if (initialPage) {
