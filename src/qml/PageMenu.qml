@@ -47,7 +47,7 @@ Item {
         onReleased: {
             y = Qt.binding(function() { return active ? parent.height - flickable.height - height : parent.height - height})
             flickable.contentY = 0
-            active = __initialPos - y >= 100
+            active = __initialPos - y >= Theme.actionThreshold
             var page = __findPage()
             page.__menu = menu
         }
