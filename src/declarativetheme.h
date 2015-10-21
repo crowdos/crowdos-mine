@@ -22,6 +22,7 @@ class DeclarativeTheme : public QObject {
   Q_PROPERTY(qreal itemSize READ itemSize NOTIFY itemSizeChanged);
   Q_PROPERTY(qreal itemSizeSmall READ itemSizeSmall NOTIFY itemSizeChanged);
   Q_PROPERTY(qreal itemSizeLarge READ itemSizeLarge NOTIFY itemSizeChanged);
+  Q_PROPERTY(qreal itemSizeNonClickable READ itemSizeNonClickable NOTIFY itemSizeChanged);
   Q_PROPERTY(qreal paddingSize READ paddingSize NOTIFY paddingSizeChanged);
   Q_PROPERTY(qreal paddingSizeSmall READ paddingSizeSmall NOTIFY paddingSizeChanged);
   Q_PROPERTY(qreal paddingSizeLarge READ paddingSizeLarge NOTIFY paddingSizeChanged);
@@ -48,6 +49,7 @@ public:
   qreal itemSize() const;
   qreal itemSizeSmall() const;
   qreal itemSizeLarge() const;
+  qreal itemSizeNonClickable() const;
 
   qreal paddingSize() const;
   qreal paddingSizeSmall() const;

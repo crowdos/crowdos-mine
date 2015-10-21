@@ -59,7 +59,7 @@ MouseArea {
 
         Rectangle {
             id: groove
-            height: 5
+            height: Theme.itemSizeNonClickable
             anchors {
                 left: parent.left
                 leftMargin: Theme.paddingSizeLarge
@@ -77,7 +77,7 @@ MouseArea {
 
         Rectangle {
             id: selected
-            height: 5
+            height: Theme.itemSizeNonClickable
             width: knob.x - Theme.paddingSizeLarge
 
             anchors {

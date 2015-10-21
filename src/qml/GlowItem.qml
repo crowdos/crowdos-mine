@@ -8,9 +8,8 @@ Item {
     property alias overlayColor: overlay.color
     property alias overlayVisible: overlay.visible
 
-    // TODO: this is hardcoded
-    width: 5
-    height: 5
+    width: Theme.itemSizeNonClickable
+    height: width
 
     Rectangle {
         id: rect
@@ -22,7 +21,7 @@ Item {
 
     RectangularGlow {
         id: glow
-        glowRadius: 10
+        glowRadius: Theme.itemSizeNonClickable * 2
         spread: 0.1
         cornerRadius: rect.radius + glowRadius
         anchors.fill: rect

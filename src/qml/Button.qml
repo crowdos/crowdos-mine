@@ -38,7 +38,7 @@ MouseArea {
         smooth: true
         color: label.color
         width: parent.width / 2
-        height: 5
+        height: Theme.itemSizeNonClickable
         radius: height / 2
         anchors {
             left: parent.left

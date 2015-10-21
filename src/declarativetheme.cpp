@@ -64,6 +64,10 @@ qreal DeclarativeTheme::itemSizeLarge() const {
   return 120;
 }
 
+qreal DeclarativeTheme::itemSizeNonClickable() const {
+  return 5;
+}
+
 qreal DeclarativeTheme::paddingSize() const {
   return 10;
 }
