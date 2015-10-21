@@ -1,11 +1,13 @@
 import QtQuick 2.0
 import Crowd.Mine 1.0
+import "private"
 
 MouseArea {
     id: page
  // TODO:
     readonly property int status: PageStatus.Inactive
     property bool backNavigation: true
+    property alias showBackNavigationIndicator: backNavigationIndicator.showBackNavigationIndicator
 
     property Item __menu
     property bool __menuOpen: __menu != null ? __menu.active : false
@@ -34,5 +36,9 @@ MouseArea {
         } else {
             page.x = 0
         }
+    }
+
+    BackNavigationIndicator {
+        id: backNavigationIndicator
     }
 }
