@@ -35,12 +35,13 @@ MouseArea {
     }
 
     Rectangle {
+        smooth: true
         color: label.color
-        width: parent.width * 0.3
-        height: Theme.paddingSize / 2
-        radius: height / 4
+        width: parent.width / 2
+        height: 5
+        radius: height / 2
         anchors {
-            right: parent.right
+            left: parent.left
             bottom: parent.bottom
         }
     }
