@@ -44,7 +44,7 @@ MouseArea {
         property: "spread"
         from: 0.3
         to: 0.1 // TODO: same as GlowItem.qml
-        duration: 5 * Theme.animationDuration
+        duration: Theme.animationDurationSlow
         alwaysRunToEnd: true
         loops: Animation.Infinite
         running: busy
