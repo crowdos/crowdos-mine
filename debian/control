@@ -1,0 +1,19 @@
+Source: crowd-mine
+Section: libs
+Priority: optional
+Maintainer: Mohammed Sameer <msameer@foolab.org>
+Build-Depends: debhelper (>= 9),
+               qtdeclarative5-dev
+Standards-Version: 3.9.6
+
+Package: qml-module-crowd-mine
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Crowd OS Mine QML components
+ Crowd OS Mine QML components
+
+Package: mine-demo
+Architecture: any
+Depends: qml-module-crowd-mine (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: Crowd OS Mine QML components demo application
+ Crowd OS Mine QML components demo application
