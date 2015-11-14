@@ -1,5 +1,6 @@
 module Crowd.Mine
 plugin crowdmineplugin
+Action 1.0 Action.qml
 ApplicationWindow 1.0 ApplicationWindow.qml
 BackgroundItem 1.0 BackgroundItem.qml
 BusyIndicator 1.0 BusyIndicator.qml
