@@ -1,0 +1,21 @@
+module Crowd.Mine
+plugin crowdmineplugin
+ApplicationWindow 1.0 ApplicationWindow.qml
+BackgroundItem 1.0 BackgroundItem.qml
+BusyIndicator 1.0 BusyIndicator.qml
+Button 1.0 Button.qml
+ContextMenu 1.0 ContextMenu.qml
+GlowItem 1.0 GlowItem.qml
+Icon 1.0 Icon.qml
+Label 1.0 Label.qml
+ListItem 1.0 ListItem.qml
+MineFlickable 1.0 MineFlickable.qml
+MineGridView 1.0 MineGridView.qml
+MineListView 1.0 MineListView.qml
+PageMenu 1.0 PageMenu.qml
+Page 1.0 Page.qml
+PageStack 1.0 PageStack.qml
+Slider 1.0 Slider.qml
+Switch 1.0 Switch.qml
+TextSwitch 1.0 TextSwitch.qml
+ValueButton 1.0 ValueButton.qml
