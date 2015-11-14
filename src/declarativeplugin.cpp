@@ -16,6 +16,8 @@ DeclarativePlugin::DeclarativePlugin(QObject *parent) :
 }
 
 void DeclarativePlugin::registerTypes(const char *uri) {
+  Q_UNUSED(uri);
+
   Q_ASSERT(uri == QLatin1String(URI));
 
   qmlRegisterType<QRangeModel>(URI, MAJOR, MINOR, "RangeModel");
@@ -25,6 +27,8 @@ void DeclarativePlugin::registerTypes(const char *uri) {
 }
 
 void DeclarativePlugin::initializeEngine(QQmlEngine *engine, const char *uri) {
+  Q_UNUSED(uri);
+
   Q_ASSERT(uri == QLatin1String(URI));
 
   engine->addImageProvider("theme", new DeclarativeImageProvider);
