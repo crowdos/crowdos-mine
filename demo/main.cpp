@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
 
   view.setResizeMode(QQuickView::SizeRootObjectToView);
 
-  QUrl url("/usr/share/minedemo/qml/main.qml");
+  QUrl url("/usr/share/mine-demo/qml/main.qml");
   if (app.arguments().size() > 1) {
     url = QString("%1/main.qml").arg(app.arguments()[1]);
   }
