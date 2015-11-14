@@ -1,5 +1,5 @@
 TEMPLATE = lib
-TARGET = $$qtLibraryTarget(crowdmine)
+TARGET = $$qtLibraryTarget(crowdmineplugin)
 INCLUDEPATH += .
 CONFIG += qt plugin
 QT += quick
