@@ -73,6 +73,17 @@ Item {
         return null
     }
 
+    Rectangle {
+        id: dimmer
+        anchors.fill: parent
+        opacity: active ? 0.9 : 0.0
+        color: "black"
+        visible: opacity > 0.0
+        Behavior on opacity {
+            NumberAnimation { duration: Theme.animationDuration }
+        }
+    }
+
     InverseMouseArea {
         x: flickable.x
         y: flickable.y
