@@ -1,6 +1,5 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import Crowd.Mine 1.0
-import ".." // TODO: ?? Needed to get Icon {} for now
 
 MouseArea {
     property bool showBackNavigationIndicator: true
