@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import Crowd.Mine 1.0
 
 Page {
@@ -26,18 +26,18 @@ Page {
 
             TextSwitch {
                 id: handleVisibleSwitch
-                text: "Show handle"
+                text: qsTr("Show handle")
                 checked: true
             }
 
             TextSwitch {
                 id: valueIndicatorVisibleSwitch
-                text: "Show value indicator"
+                text: qsTr("Show value indicator")
             }
 
 
             Label {
-                text: "Slider with a custom indictor text"
+                text: qsTr("Slider with a custom indictor text")
             }
 
             Slider {
@@ -46,7 +46,7 @@ Page {
                 value: 30
                 handleVisible: true
                 valueIndicatorVisible: true
-                valueIndicatorText: "Selected value is " + value
+                valueIndicatorText: qsTr("Selected value is %1").arg(value)
             }
 
         }

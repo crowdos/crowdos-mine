@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import Crowd.Mine 1.0
 
 Page {
@@ -16,7 +16,7 @@ Page {
                 }
 
                 TextSwitch {
-                    text: "A switch with a text"
+                    text: qsTr("A switch with a text")
                 }
             }
 
@@ -28,7 +28,7 @@ Page {
 
                 TextSwitch {
                     busy: true
-                    text: "A busy text switch"
+                    text: qsTr("A busy text switch")
                 }
             }
         }

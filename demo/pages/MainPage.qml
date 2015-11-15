@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import Crowd.Mine 1.0
 
 Page {
@@ -9,19 +9,19 @@ Page {
         title: qsTr("Components")
 
         model: ListModel {
-            ListElement { title: "Buttons"; page: "ButtonsPage.qml" }
-            ListElement { title: "Sliders"; page: "SlidersPage.qml" }
-            ListElement { title: "Switches"; page: "SwitchesPage.qml" }
-            ListElement { title: "Menus"; page: "MenusPage.qml" }
-            ListElement { title: "Labels"; page: "LabelsPage.qml" }
-            ListElement { title: "Glow items"; page: "GlowItemsPage.qml" }
-            ListElement { title: "Text input"; page: "TextInputPage.qml" }
-            ListElement { title: "Progress indicators"; page: "ProgressIndicatorsPage.qml" }
-            ListElement { title: "Busy indicators"; page: "BusyIndicatorsPage.qml" }
-            ListElement { title: "Orientation"; page: "OrientationPage.qml" }
-            ListElement { title: "Combo box"; page: "ComboBoxPage.qml" }
-            ListElement { title: "Dialogs"; page: "DialogsPage.qml" }
-            ListElement { title: "Banners"; page: "BannersPage.qml" }
+            ListElement { title: qsTr("Buttons"); page: "ButtonsPage.qml" }
+            ListElement { title: qsTr("Sliders"); page: "SlidersPage.qml" }
+            ListElement { title: qsTr("Switches"); page: "SwitchesPage.qml" }
+            ListElement { title: qsTr("Menus"); page: "MenusPage.qml" }
+            ListElement { title: qsTr("Labels"); page: "LabelsPage.qml" }
+            ListElement { title: qsTr("Glow items"); page: "GlowItemsPage.qml" }
+            ListElement { title: qsTr("Text input"); page: "TextInputPage.qml" }
+            ListElement { title: qsTr("Progress indicators"); page: "ProgressIndicatorsPage.qml" }
+            ListElement { title: qsTr("Busy indicators"); page: "BusyIndicatorsPage.qml" }
+            ListElement { title: qsTr("Orientation"); page: "OrientationPage.qml" }
+            ListElement { title: qsTr("Combo box"); page: "ComboBoxPage.qml" }
+            ListElement { title: qsTr("Dialogs"); page: "DialogsPage.qml" }
+            ListElement { title: qsTr("Banners"); page: "BannersPage.qml" }
         }
 
         delegate: ListItem {

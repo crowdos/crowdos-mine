@@ -1,4 +1,4 @@
-import QtQuick 2.2
+import QtQuick 2.5
 import Crowd.Mine 1.0
 
 Page {
@@ -12,12 +12,12 @@ Page {
             spacing: Theme.paddingSize
             width: parent.width
             Button {
-                text: "Button!"
+                text: qsTr("Button!")
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
             Button {
-                text: "Button with a very long label!"
+                text: qsTr("Button with a very long label!")
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
@@ -56,8 +56,8 @@ Page {
             }
 
             ValueButton {
-                label: "Label"
-                value: "Value"
+                label: qsTr("Label")
+                value: qsTr("Value")
             }
         }
     }

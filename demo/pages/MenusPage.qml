@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import Crowd.Mine 1.0
 
 Page {
@@ -7,9 +7,9 @@ Page {
         anchors.fill: parent
 
         model: ListModel {
-            ListElement {title: "Long press"; showMenu: true; fruit: "Apple" }
-            ListElement {title: "Long press 2"; showMenu: true; fruit: "Orange" }
-            ListElement {title: "Long press 3"; showMenu: true; fruit: "Grapes" }
+            ListElement {title: qsTr("Long press"); showMenu: true; fruit: "Apple" }
+            ListElement {title: qsTr("Long press 2"); showMenu: true; fruit: "Orange" }
+            ListElement {title: qsTr("Long press 3"); showMenu: true; fruit: "Grapes" }
             ListElement {title: "No menu"; showMenu: false; }
         }
 
@@ -31,17 +31,17 @@ Page {
         ContextMenu {
             actions: [
                 Action {
-                    text: "Fruit is " + fruit
+                    text: qsTr("Fruit is %1").arg(fruit)
                 },
                 Action {
-                    text: "2nd item"
+                    text: qsTr("2nd item")
                 },
                 Action {
-                    text: "Disabled"
+                    text: qsTr("Disabled")
                     enabled: false
                 },
                 Action {
-                    text: "Hidden"
+                    text: qsTr("Hidden")
                     visible: false
                 }
             ]
@@ -51,39 +51,39 @@ Page {
     PageMenu {
         actions: [
             Action {
-                text: "Action 1"
+                text: qsTr("Action 1")
             },
             Action {
-                text: "Action 2"
+                text: qsTr("Action 2")
             },
             Action {
-                text: "Disabled action"
+                text: qsTr("Disabled action")
                 enabled: false
             },
             Action {
-                text: "Action 3"
+                text: qsTr("Action 3")
             },
             Action {
-                text: "Action 4"
+                text: qsTr("Action 4")
             },
             Action {
-                text: "Action 5"
+                text: qsTr("Action 5")
             },
             Action {
-                text: "Action 6"
+                text: qsTr("Action 6")
             },
             Action {
-                text: "Action 7"
+                text: qsTr("Action 7")
             },
             Action {
-                text: "Action 8"
+                text: qsTr("Action 8")
             },
             Action {
-                text: "Hidden action"
+                text: qsTr("Hidden action")
                 visible: false
             },
             Action {
-                text: "Last action"
+                text: qsTr("Last action")
             }
         ]
     }
