@@ -17,17 +17,28 @@ Rectangle {
         width: 1
     }
 
-    GlowItem {
-        id: glow
+    Grid {
+        id: rotater
         anchors.centerIn: parent
-        color: Theme.textColor
+        width: 6 * Theme.itemSizeNonClickable
+        height: 6 * Theme.itemSizeNonClickable
+        columns: 2
+        spacing: 4 * Theme.itemSizeNonClickable
+
+        Repeater {
+            model: 4
+            delegate: GlowItem {
+                id: glow
+                color: Theme.textColor
+            }
+        }
     }
 
     PropertyAnimation {
-        target: glow
-        property: "spread"
-        from: 0.3
-        to: 0.1 // TODO: same as GlowItem.qml
+        target: rotater
+        property: "rotation"
+        from: 0
+        to: 360
         duration: Theme.animationDurationSlow
         alwaysRunToEnd: true
         loops: Animation.Infinite
