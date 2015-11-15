@@ -1,21 +1,23 @@
-import QtQuick 2.2
+import QtQuick 2.5
 import Crowd.Mine 1.0
 import QtGraphicalEffects 1.0
 
 Item {
     property alias color: rect.color
     property alias spread: glow.spread
+    property alias glowRadius: glow.glowRadius
+    property alias cornerRadius: glow.cornerRadius
     property alias overlayColor: overlay.color
     property alias overlayVisible: overlay.visible
 
     width: Theme.itemSizeNonClickable
-    height: width
+    height: Theme.itemSizeNonClickable
 
     Rectangle {
         id: rect
         anchors.fill: parent
         color: Theme.textColor
-        radius: width / 2
+        radius: height / 2
         opacity: parent.enabled ? 1.0 : 0.1
     }
 
