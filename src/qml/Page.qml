@@ -16,7 +16,7 @@ MouseArea {
 
     Behavior on opacity {
         enabled: pageStack.depth > 1
-        NumberAnimation { duration: Theme.animationDuration }
+        NumberAnimation { duration: Theme.animationDurationFast }
     }
 
     drag {

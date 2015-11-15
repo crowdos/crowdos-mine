@@ -25,7 +25,7 @@ Item {
 
         Behavior on y {
             enabled: !pressed
-            NumberAnimation { duration: Theme.animationDuration }
+            NumberAnimation { duration: Theme.animationDurationFast }
         }
 
         anchors {
@@ -80,7 +80,7 @@ Item {
         color: "black"
         visible: opacity > 0.0
         Behavior on opacity {
-            NumberAnimation { duration: Theme.animationDuration }
+            NumberAnimation { duration: Theme.animationDurationFast }
         }
     }
 
@@ -108,7 +108,7 @@ Item {
             visible: opacity > 0
             opacity: active ? 1.0 : 0.0
             Behavior on opacity {
-                NumberAnimation { duration: Theme.animationDuration }
+                NumberAnimation { duration: Theme.animationDurationFast }
             }
 
             Repeater {

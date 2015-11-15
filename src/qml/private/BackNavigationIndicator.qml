@@ -14,7 +14,7 @@ MouseArea {
         && showBackNavigationIndicator ? 0.5 : 0.0
 
     Behavior on opacity {
-        NumberAnimation { duration: Theme.animationDuration }
+        NumberAnimation { duration: Theme.animationDurationFast }
     }
 
     anchors {

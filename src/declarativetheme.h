@@ -26,7 +26,7 @@ class DeclarativeTheme : public QObject {
   Q_PROPERTY(qreal paddingSize READ paddingSize NOTIFY paddingSizeChanged);
   Q_PROPERTY(qreal paddingSizeSmall READ paddingSizeSmall NOTIFY paddingSizeChanged);
   Q_PROPERTY(qreal paddingSizeLarge READ paddingSizeLarge NOTIFY paddingSizeChanged);
-  Q_PROPERTY(qreal animationDuration READ animationDuration NOTIFY animationDurationChanged);
+  Q_PROPERTY(qreal animationDurationFast READ animationDurationFast NOTIFY animationDurationChanged);
   Q_PROPERTY(qreal animationDurationSlow READ animationDurationSlow NOTIFY animationDurationChanged);
   Q_PROPERTY(qreal actionThreshold READ actionThreshold NOTIFY actionThresholdChanged);
 
@@ -56,7 +56,7 @@ public:
   qreal paddingSizeSmall() const;
   qreal paddingSizeLarge() const;
 
-  qreal animationDuration() const;
+  qreal animationDurationFast() const;
   qreal animationDurationSlow() const;
   qreal actionThreshold() const;
 
