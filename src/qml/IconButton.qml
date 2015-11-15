@@ -5,28 +5,27 @@ MouseArea {
     id: button
 
     readonly property bool down: pressed && containsMouse
-    property alias text: label.text
-    property color color: Theme.textColor
-    property color highlightColor: Theme.highlightTextColor
+    readonly property color __color: image.highlight ? Theme.highlightTextColor : Theme.textColor
+    property alias icon: image
 
     implicitWidth: column.width + 2 * Theme.paddingSize
     implicitHeight: column.height + 2 * Theme.paddingSize
 
     Column {
         id: column
-        width: label.width
+        width: image.width
         spacing: Theme.paddingSize
         anchors.centerIn: parent
 
-        Label {
-            id: label
-            color: button.down ? button.highlightColor : button.color
+        Icon {
+            id: image
+            highlight: button.down
         }
 
         GlowItem {
-            color: label.color
             width: parent.width
             glowRadius: height
+            color: button.__color
         }
     }
 }

@@ -21,10 +21,38 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
 
-            Button {
-                icon.source: "image://theme/icon-l-copy"
-                text: "Button with icon!"
+            Row {
                 anchors.horizontalCenter: parent.horizontalCenter
+                Button {
+                    text: qsTr("Button 1")
+                }
+
+                Button {
+                    text: qsTr("Button 2")
+                }
+
+                Button {
+                    text: qsTr("Button 3")
+                }
+            }
+
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                IconButton {
+                    icon.source: "image://theme/icon-l-copy"
+                }
+
+                IconButton {
+                    icon.source: "image://theme/icon-l-copy"
+                }
+
+                IconButton {
+                    icon.source: "image://theme/icon-l-copy"
+                }
+
+                IconButton {
+                    icon.source: "image://theme/icon-l-copy"
+                }
             }
 
             ValueButton {

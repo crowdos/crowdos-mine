@@ -8,6 +8,7 @@ Button 1.0 Button.qml
 ContextMenu 1.0 ContextMenu.qml
 GlowItem 1.0 GlowItem.qml
 Icon 1.0 Icon.qml
+IconButton 1.0 IconButton.qml
 Label 1.0 Label.qml
 ListItem 1.0 ListItem.qml
 MineFlickable 1.0 MineFlickable.qml
