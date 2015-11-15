@@ -3,6 +3,8 @@ import Crowd.Mine 1.0
 
 Page {
     MineGridView {
+        title: qsTr("Glow items")
+
         anchors.fill: parent
         cellWidth: parent.width / 3
         cellHeight: cellWidth

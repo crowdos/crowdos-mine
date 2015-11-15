@@ -5,6 +5,7 @@ Page {
     MineFlickable {
         anchors.fill: parent
         contentHeight: column.height
+        title: qsTr("Labels")
 
         Column {
             id: column

@@ -5,6 +5,8 @@ Page {
     MineFlickable {
         anchors.fill: parent
         contentHeight: column.height
+        title: qsTr("Buttons")
+
         Column {
             id: column
             spacing: Theme.paddingSize

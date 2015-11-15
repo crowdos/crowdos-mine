@@ -3,6 +3,8 @@ import Crowd.Mine 1.0
 
 Page {
     MineFlickable {
+        title: qsTr("Busy indicators")
+
         anchors {
             fill: parent
             margins: Theme.paddingSizeSmall

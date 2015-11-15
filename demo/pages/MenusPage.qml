@@ -3,6 +3,7 @@ import Crowd.Mine 1.0
 
 Page {
     MineListView {
+        title: qsTr("Menus")
         anchors.fill: parent
 
         model: ListModel {

@@ -5,13 +5,16 @@ Page {
     MineListView {
         id: view
         anchors.fill: parent
+
+        title: qsTr("Components")
+
         model: ListModel {
             ListElement { title: "Buttons"; page: "ButtonsPage.qml" }
             ListElement { title: "Sliders"; page: "SlidersPage.qml" }
             ListElement { title: "Switches"; page: "SwitchesPage.qml" }
             ListElement { title: "Menus"; page: "MenusPage.qml" }
             ListElement { title: "Labels"; page: "LabelsPage.qml" }
-            ListElement { title: "Glow Items"; page: "GlowItemsPage.qml" }
+            ListElement { title: "Glow items"; page: "GlowItemsPage.qml" }
             ListElement { title: "Text input"; page: "TextInputPage.qml" }
             ListElement { title: "Progress indicators"; page: "ProgressIndicatorsPage.qml" }
             ListElement { title: "Busy indicators"; page: "BusyIndicatorsPage.qml" }

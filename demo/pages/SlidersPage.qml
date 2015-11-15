@@ -3,6 +3,8 @@ import Crowd.Mine 1.0
 
 Page {
     MineFlickable {
+        title: qsTr("Sliders")
+
         anchors {
             fill: parent
             margins: Theme.paddingSize

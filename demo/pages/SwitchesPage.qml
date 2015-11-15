@@ -5,6 +5,7 @@ Page {
     MineFlickable {
         anchors.fill: parent
         contentHeight: column.height
+        title: qsTr("Switches")
 
         Column {
             id: column
