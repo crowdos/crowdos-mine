@@ -8,6 +8,8 @@ Page {
             margins: Theme.paddingSize
         }
 
+        contentHeight: column.height
+
         Column {
             id: column
             width: parent.width
