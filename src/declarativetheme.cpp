@@ -84,7 +84,7 @@ qreal DeclarativeTheme::animationDurationFast() const {
   return 100;
 }
 
-qreal DeclarativeTheme::animationDurationSlow() const {
+qreal DeclarativeTheme::animationDuration() const {
   return 500;
 }
 
