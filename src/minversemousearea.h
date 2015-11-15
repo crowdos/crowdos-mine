@@ -41,17 +41,17 @@
 #ifndef MINVERSEMOUSEAREA_H
 #define MINVERSEMOUSEAREA_H
 
-#include <QDeclarativeItem>
+#include <QQuickItem>
 
 class QGraphicsSceneMouseEvent;
 
-class MInverseMouseArea : public QDeclarativeItem
+class MInverseMouseArea : public QQuickItem
 {
     Q_OBJECT
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged)
 
 public:
-    MInverseMouseArea(QDeclarativeItem *parent = 0);
+    MInverseMouseArea(QQuickItem *parent = 0);
     ~MInverseMouseArea();
 
     bool isEnabled() const;
@@ -62,22 +62,17 @@ protected:
     void itemChange(ItemChange change, const ItemChangeData &data);
 
 private:
-    bool isClickedOnSoftwareInputPanel(QGraphicsSceneMouseEvent *event) const;
     QPointF mapToRootItem(QPointF pos);
 
 signals:
     void pressedOutside(int mouseX, int mouseY);
-    void clickedOutside(int mouseX, int mouseY);
     void enabledChanged();
 
 private:
-    bool m_pressed;
     bool m_enabled;
 
-    Q_DISABLE_COPY(MInverseMouseArea)
+    QQuickWindow *m_window;
 };
-
-QML_DECLARE_TYPE(MInverseMouseArea)
 
 #endif // MINVERSEMOUSEAREA_H
 

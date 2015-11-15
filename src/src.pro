@@ -9,13 +9,15 @@ INSTALL_PATH=$$[QT_INSTALL_QML]/Crowd/Mine/
 SOURCES += declarativeplugin.cpp \
            declarativetheme.cpp \
            declarativeimageprovider.cpp \
-           qrangemodel.cpp
+           qrangemodel.cpp \
+           minversemousearea.cpp
 
 HEADERS += declarativeplugin.h \
            pagestatus.h \
            declarativetheme.h \
            declarativeimageprovider.h \
-           qrangemodel.h
+           qrangemodel.h \
+           minversemousearea.h
 
 target.path = $${INSTALL_PATH}
 

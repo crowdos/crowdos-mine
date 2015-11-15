@@ -39,26 +39,22 @@
 ****************************************************************************/
 
 #include "minversemousearea.h"
-
-#include <QGraphicsScene>
-#include <QGraphicsSceneMouseEvent>
-
+#include <QQuickWindow>
 
 // Threshold in QDeclarativeFlickable is 20
 static const int FlickThresholdSquare = 400;
 
-MInverseMouseArea::MInverseMouseArea(QDeclarativeItem *parent)
-    : QDeclarativeItem(parent),
-      m_pressed(false),
+MInverseMouseArea::MInverseMouseArea(QQuickItem *parent)
+    : QQuickItem(parent),
       m_enabled(true)
 {
-
+    m_window = window();
 }
 
 MInverseMouseArea::~MInverseMouseArea()
 {
-    if (scene())
-        scene()->removeEventFilter(this);
+    if (m_window)
+        m_window->removeEventFilter(this);
 }
 
 bool MInverseMouseArea::isEnabled() const
@@ -69,9 +65,6 @@ bool MInverseMouseArea::isEnabled() const
 void MInverseMouseArea::setEnabled(bool enabled)
 {
     if (m_enabled != enabled) {
-        if (!enabled)
-            m_pressed = false;
-
         m_enabled = enabled;
         emit enabledChanged();
     }
@@ -80,23 +73,15 @@ void MInverseMouseArea::setEnabled(bool enabled)
 void MInverseMouseArea::itemChange(ItemChange change, const ItemChangeData &data)
 {
     switch (change) {
-    case QGraphicsItem::ItemSceneChange: {
-        QGraphicsScene *oldScene = scene();
+    case QQuickItem::ItemSceneChange: {
+        if (m_window)
+            m_window->removeEventFilter(this);
 
-        if (oldScene)
-            oldScene->removeEventFilter(this);
+	m_window = data.window;
 
-        m_pressed = false;
-
-        if (QQuickWindow *newScene = data.window) {
-            if (newScene)
-                newScene->installEventFilter(this);
+        if (m_window) {
+	    m_window->installEventFilter(this);
         }
-        break;
-    }
-    case QGraphicsItem::ItemVisibleHasChanged: {
-        if (!isVisible())
-            m_pressed = false;
         break;
     }
     default:
@@ -106,71 +91,27 @@ void MInverseMouseArea::itemChange(ItemChange change, const ItemChangeData &data
     QQuickItem::itemChange(change, data);
 }
 
-bool MInverseMouseArea::isClickedOnSoftwareInputPanel(QGraphicsSceneMouseEvent *event) const
-{
-    Q_UNUSED(event);
-    // FIXME: How do we solve this with Qt5?
-    return false;
-}
-
 bool MInverseMouseArea::eventFilter(QObject *obj, QEvent *ev)
 {
     Q_UNUSED(obj);
 
     if (!m_enabled || !isVisible())
-        return false;    
+        return false;
+
     switch (ev->type()) {
-    case QEvent::GraphicsSceneMousePress: {
-        QGraphicsSceneMouseEvent *me = static_cast<QGraphicsSceneMouseEvent *>(ev);
-        QPointF mappedPos = mapToRootItem(me->scenePos());
+    case QEvent::MouseButtonPress: {
+        QMouseEvent *m = static_cast<QMouseEvent *>(ev);
+        QPointF pos = mapFromScene(m->windowPos());
+        bool pressed = !contains(pos);
 
-        m_pressed = !isUnderMouse() && !isClickedOnSoftwareInputPanel(me);
-
-        if (m_pressed)
-            emit pressedOutside(mappedPos.x(), mappedPos.y());
+        if (pressed)
+            emit pressedOutside(pos.x(), pos.y());
         break;
     }
-    case QEvent::GraphicsSceneMouseMove: {
-        if (m_pressed) {
-            QGraphicsSceneMouseEvent *me = static_cast<QGraphicsSceneMouseEvent *>(ev);
-            const QPointF &dist = me->scenePos() - me->buttonDownScenePos(Qt::LeftButton);
 
-            if (dist.x() * dist.x() + dist.y() * dist.y() > FlickThresholdSquare)
-                m_pressed = false;
-        }
-        break;
-    }
-    case QEvent::GraphicsSceneMouseRelease: {
-        QGraphicsSceneMouseEvent *me = static_cast<QGraphicsSceneMouseEvent *>(ev);
-        QPointF mappedPos = mapToRootItem(me->scenePos());
-
-        if (m_pressed) {
-            m_pressed = false;
-            emit clickedOutside(mappedPos.x(), mappedPos.y());
-        }
-        break;
-    }
     default:
         break;
     }
 
     return false;
-}
-
-QPointF MInverseMouseArea::mapToRootItem(QPointF pos) {
-    QPointF mappedPos = pos;
-    QDeclarativeItem *rootItem = parentItem();
-
-    while (rootItem->parentItem()) {
-        if (rootItem->objectName() == "windowContent") {
-            break;
-        }
-        rootItem = rootItem->parentItem();
-    }
-
-    if (rootItem) {
-        mappedPos = rootItem->mapFromScene(pos);
-    }
-
-    return mappedPos;
 }
