@@ -9,7 +9,14 @@ Item {
     visible: actions.length > 0
     anchors.fill: parent
     property bool active
-    property real __flickableY: flickable.y
+
+    onActiveChanged: {
+        if (!active) {
+            var page = __findPage()
+            page.__menu = null
+        }
+    }
+
     Button {
         id: handle
         width: Theme.itemSizeLarge
@@ -66,10 +73,19 @@ Item {
         return null
     }
 
+    InverseMouseArea {
+        x: flickable.x
+        y: flickable.y
+        width: flickable.width
+        height: flickable.height
+        enabled: menu.active
+        onPressedOutside: menu.active = false
+    }
+
     MineFlickable {
         id: flickable
+        boundsBehavior: Flickable.StopAtBounds
         clip: true
-//        pressDelay: 0
         y: handle.y + handle.height
         width: parent.width
         height: actions.length > 4 ? Theme.itemSize * 4.5 : Theme.itemSize * actions.length
@@ -88,13 +104,13 @@ Item {
                 id: repeater
                 model: actions
                 delegate: BackgroundItem {
+                    id: item
                     visible: modelData.visible
                     color: Theme.highlightBackgroundColor
                     onClicked: { modelData.clicked(); active = false }
-                    width: parent.width
-                    height: Theme.itemSize
+
                     Label {
-                        color: modelData.enabled && parent.down ? Theme.highlightTextColor : Theme.textColor
+                        color: modelData.enabled && item.down ? Theme.highlightTextColor : Theme.textColor
                         anchors.centerIn: parent
                         text: modelData.text
                         opacity: modelData.enabled ? 1.0 : 0.5
