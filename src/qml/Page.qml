@@ -9,8 +9,8 @@ MouseArea {
     property bool backNavigation: true
     property alias showBackNavigationIndicator: backNavigationIndicator.showBackNavigationIndicator
 
-    property Item __menu
-    property bool __menuOpen: __menu != null ? __menu.active : false
+    property Item __menu: null
+
     visible: opacity > 0
     opacity: pageStack.currentPage == page ? 1.0 : 0.0
 
@@ -19,12 +19,10 @@ MouseArea {
         NumberAnimation { duration: Theme.animationDuration }
     }
 
-    // Only close if we do not tap inside the flickable itself
-    onClicked: if (__menu && mouse.y < __menu.__flickableY) { __menu.active = false }
     drag {
         minimumX: 0
         maximumX: width
-        target: pageStack.depth > 1 && !__menuOpen && backNavigation ? page : null
+        target: pageStack.depth > 1 && __menu == null && backNavigation ? page : null
         axis: "XAxis"
         filterChildren: true
         threshold: Theme.actionThreshold / 2
