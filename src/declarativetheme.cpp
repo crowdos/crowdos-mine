@@ -88,6 +88,10 @@ qreal DeclarativeTheme::animationDuration() const {
   return 500;
 }
 
+qreal DeclarativeTheme::animationDurationSlow() const {
+  return 650;
+}
+
 qreal DeclarativeTheme::actionThreshold() const {
   return 100;
 }
