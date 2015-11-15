@@ -17,6 +17,7 @@ MineListView 1.0 MineListView.qml
 PageMenu 1.0 PageMenu.qml
 Page 1.0 Page.qml
 PageStack 1.0 PageStack.qml
+ProgressBar 1.0 ProgressBar.qml
 Slider 1.0 Slider.qml
 Switch 1.0 Switch.qml
 TextSwitch 1.0 TextSwitch.qml
