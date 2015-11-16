@@ -3,8 +3,8 @@ import Crowd.Mine 1.0
 
 Item {
     id: rootWindow
-    width: 400
-    height: 600
+    width: Screen.width
+    height: Screen.height
 
     property variant initialPage
     property PageStack pageStack: PageStack { window: rootWindow }
