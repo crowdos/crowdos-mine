@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import Crowd.Mine 1.0
+import "private/Utils.js" as Utils
 
 MineFlickable {
     id: menu
@@ -19,22 +20,9 @@ MineFlickable {
         active = false
     }
 
-    function __findPage() {
-        var page = parent
-        while (page != null) {
-            if (page.__menu !== undefined) {
-                return page
-            }
-
-            page = page.parent
-        }
-
-        return null
-    }
-
     onActiveChanged: {
         if (active) {
-            var page = __findPage()
+            var page = Utils.findPage(menu)
             page.__menu = menu
         }
     }

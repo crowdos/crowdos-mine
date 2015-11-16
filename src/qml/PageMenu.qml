@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import Crowd.Mine 1.0
+import "private/Utils.js" as Utils
 
 Item {
     id: menu
@@ -12,7 +13,7 @@ Item {
 
     onActiveChanged: {
         if (!active) {
-            var page = __findPage()
+            var page = Utils.findPage(menu)
             page.__menu = null
         }
     }
@@ -55,22 +56,9 @@ Item {
             y = Qt.binding(function() { return active ? parent.height - flickable.height - height : parent.height - height})
             flickable.contentY = 0
             active = __initialPos - y >= Theme.actionThreshold
-            var page = __findPage()
+            var page = Utils.findPage(menu)
             page.__menu = menu
         }
-    }
-
-    function __findPage() {
-        var page = parent
-        while (page != null) {
-            if (page.__menu !== undefined) {
-                return page
-            }
-
-            page = page.parent
-        }
-
-        return null
     }
 
     Rectangle {
