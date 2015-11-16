@@ -2,13 +2,19 @@ import QtQuick 2.5
 import Crowd.Mine 1.0
 import "PageStack.js" as Cache
 
-QtObject {
+Item {
     property Item window
-    property Item currentPage
-    property int depth
+    readonly property Item currentPage: stack.currentItem ? stack.currentItem.page : null
+    readonly property Item previousPage: stack.previousItem ? stack.previousItem.page : null
+
+    property alias depth: stack.size
+
     readonly property bool busy: animation.running
 //    property variant __cache: []
-    property variant __stack: []
+
+    Stack {
+        id: stack
+    }
 
     function completeAnimation() {
         if (busy) {
@@ -46,13 +52,13 @@ QtObject {
             return
         }
 
-        for (var x = 0; x < __stack.length; x++) {
-            if (__stack[x].page == page) {
+        for (var x = 0; x < stack.size; x++) {
+            if (stack.at(x).page == page) {
                 break
             }
         }
 
-        if (x == __stack.length) {
+        if (x == stack.size) {
             x = 0
         }
 
@@ -60,7 +66,7 @@ QtObject {
         // We need to pop until the page immediately after x so we add another 1
         x += 2
 
-        while (__stack.length > x) {
+        while (stack.size > x) {
             __pop(true)
             completeAnimation()
         }
@@ -69,13 +75,11 @@ QtObject {
     }
 
     function __pop(immediate) {
-        var comp = __stack.pop()
+        var comp = stack.pop()
         animation.from = comp.page.x
         animation.to = immediate == true ? 0 : window.width
         animation.comp = comp
-        animation.target = currentPage
-        depth = __stack.length
-        currentPage = __stack.length == 0 ? null : __stack[__stack.length - 1].page
+        animation.target = comp.page
         animation.start()
     }
 
@@ -125,13 +129,9 @@ QtObject {
         animation.to = 0
         animation.comp = null
         animation.start()
-        if (__stack == undefined) {
-            __stack = new Array
-        }
-        __stack.push(comp)
-        depth = __stack.length
-        currentPage = comp.page
-        return currentPage
+        stack.push(comp)
+
+        return comp.page
     }
 /*
     function __lookup(page) {

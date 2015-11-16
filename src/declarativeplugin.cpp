@@ -6,6 +6,7 @@
 #include "declarativetheme.h"
 #include "declarativeimageprovider.h"
 #include "minversemousearea.h"
+#include "declarativestack.h"
 
 #define URI   "Crowd.Mine"
 #define MAJOR 1
@@ -22,6 +23,7 @@ void DeclarativePlugin::registerTypes(const char *uri) {
   Q_ASSERT(uri == QLatin1String(URI));
 
   qmlRegisterType<MInverseMouseArea>(URI, MAJOR, MINOR, "InverseMouseArea");
+  qmlRegisterType<DeclarativeStack>(URI, MAJOR, MINOR, "Stack");
   qmlRegisterType<QRangeModel>(URI, MAJOR, MINOR, "RangeModel");
   qmlRegisterUncreatableType<PageStatus>(URI, MAJOR, MINOR, "PageStatus", "");
   qmlRegisterSingletonType<DeclarativeTheme>(URI, MAJOR, MINOR, "Theme",
