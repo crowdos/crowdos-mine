@@ -56,8 +56,11 @@ qreal DeclarativeTheme::itemSize() const {
   return 100;
 }
 
+/*
+ * itemSizeSmall is enough for a single normal sized text
+ */
 qreal DeclarativeTheme::itemSizeSmall() const {
-  return 80;
+  return 36;
 }
 
 qreal DeclarativeTheme::itemSizeLarge() const {
