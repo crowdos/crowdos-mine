@@ -9,23 +9,33 @@ MouseArea {
     property color color: Theme.textColor
     property color highlightColor: Theme.highlightTextColor
 
-    implicitWidth: column.width + 2 * Theme.paddingSize
+    width: Screen.width / 3
     implicitHeight: column.height + 2 * Theme.paddingSize
 
     Column {
         id: column
-        width: label.width
-        spacing: Theme.paddingSize
-        anchors.centerIn: parent
+        anchors {
+            left: parent.left
+            right: parent.right
+            margins: Theme.paddingSizeSmall
+        }
+
+        spacing: Theme.paddingSizeSmall
 
         Label {
             id: label
             color: button.down ? button.highlightColor : button.color
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignTop
+            elide: Text.ElideRight
+            height: Theme.itemSizeSmall
         }
 
         GlowItem {
             color: label.color
             width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
             glowRadius: height
         }
     }
