@@ -11,7 +11,8 @@ SOURCES += declarativeplugin.cpp \
            declarativeimageprovider.cpp \
            qrangemodel.cpp \
            minversemousearea.cpp \
-           declarativestack.cpp
+           declarativestack.cpp \
+           declarativescreen.cpp
 
 HEADERS += declarativeplugin.h \
            pagestatus.h \
@@ -19,7 +20,8 @@ HEADERS += declarativeplugin.h \
            declarativeimageprovider.h \
            qrangemodel.h \
            minversemousearea.h \
-           declarativestack.h
+           declarativestack.h \
+           declarativescreen.h
 
 target.path = $${INSTALL_PATH}
 

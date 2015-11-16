@@ -7,6 +7,7 @@
 #include "declarativeimageprovider.h"
 #include "minversemousearea.h"
 #include "declarativestack.h"
+#include "declarativescreen.h"
 
 #define URI   "Crowd.Mine"
 #define MAJOR 1
@@ -28,6 +29,8 @@ void DeclarativePlugin::registerTypes(const char *uri) {
   qmlRegisterUncreatableType<PageStatus>(URI, MAJOR, MINOR, "PageStatus", "");
   qmlRegisterSingletonType<DeclarativeTheme>(URI, MAJOR, MINOR, "Theme",
 					     DeclarativeTheme::instance);
+  qmlRegisterSingletonType<DeclarativeScreen>(URI, MAJOR, MINOR, "Screen",
+					      DeclarativeScreen::instance);
 }
 
 void DeclarativePlugin::initializeEngine(QQmlEngine *engine, const char *uri) {
