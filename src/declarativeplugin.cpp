@@ -8,6 +8,7 @@
 #include "minversemousearea.h"
 #include "declarativestack.h"
 #include "declarativescreen.h"
+#include "declarativeicon.h"
 
 #define URI   "Crowd.Mine"
 #define MAJOR 1
@@ -23,6 +24,7 @@ void DeclarativePlugin::registerTypes(const char *uri) {
 
   Q_ASSERT(uri == QLatin1String(URI));
 
+  qmlRegisterType<DeclarativeIcon>(URI, MAJOR, MINOR, "IconImage");
   qmlRegisterType<MInverseMouseArea>(URI, MAJOR, MINOR, "InverseMouseArea");
   qmlRegisterType<DeclarativeStack>(URI, MAJOR, MINOR, "Stack");
   qmlRegisterType<QRangeModel>(URI, MAJOR, MINOR, "RangeModel");
