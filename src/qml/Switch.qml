@@ -35,7 +35,7 @@ MouseArea {
         Icon {
             id: image
             anchors.horizontalCenter: parent.horizontalCenter
-            highlight: root.checked || root.down
+            pressed: root.checked || root.down
         }
     }
 
