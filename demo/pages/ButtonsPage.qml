@@ -43,7 +43,7 @@ Page {
                 }
 
                 IconButton {
-                    icon.source: "image://theme/icon-l-copy"
+                    icon.source: "icon-l-copy"
                 }
 
                 IconButton {

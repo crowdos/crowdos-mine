@@ -5,7 +5,6 @@ MouseArea {
     id: button
 
     readonly property bool down: pressed && containsMouse
-    readonly property color __color: image.highlight ? Theme.highlightTextColor : Theme.textColor
     property alias icon: image
 
     implicitWidth: column.width + 2 * Theme.paddingSize
@@ -19,13 +18,15 @@ MouseArea {
 
         Icon {
             id: image
-            highlight: button.down
+            pressed: button.down
+            width: Theme.iconSizeSmall
+            height: Theme.iconSizeSmall
         }
 
         GlowItem {
             width: parent.width
             glowRadius: height
-            color: button.__color
+            color: button.down ? Theme.highlightTextColor : Theme.textColor
         }
     }
 }
