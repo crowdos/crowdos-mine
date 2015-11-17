@@ -8,7 +8,9 @@ Standards-Version: 3.9.6
 
 Package: qml-module-crowd-mine
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, qml-module-qtgraphicaleffects (>= 5.5.1-)
+Depends: ${misc:Depends}, ${shlibs:Depends},
+         qml-module-qtgraphicaleffects (>= 5.5.1-),
+         libqt5svg5
 Description: Crowd OS Mine QML components
  Crowd OS Mine QML components
 
