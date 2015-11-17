@@ -7,7 +7,6 @@ MouseArea {
  // TODO:
     readonly property int status: PageStatus.Inactive
     property bool backNavigation: true
-    property alias showBackNavigationIndicator: backNavigationIndicator.showBackNavigationIndicator
 
     property Item __menu: null
 
@@ -34,9 +33,5 @@ MouseArea {
         } else {
             page.x = 0
         }
-    }
-
-    BackNavigationIndicator {
-        id: backNavigationIndicator
     }
 }
