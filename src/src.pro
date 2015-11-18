@@ -26,7 +26,7 @@ HEADERS += declarativeplugin.h \
 
 target.path = $${INSTALL_PATH}
 
-qml.files = qmldir \
+qml.files = qml/qmldir \
             qml/ApplicationWindow.qml \
             qml/BackgroundItem.qml \
             qml/BusyIndicator.qml \
