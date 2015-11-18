@@ -49,4 +49,9 @@ qml.files = qml/qmldir \
 
 qml.path = $${INSTALL_PATH}
 
-INSTALLS += target qml
+private.files = qml/private/Header.qml \
+                qml/private/Utils.js
+
+private.path = $${INSTALL_PATH}/private
+
+INSTALLS += target qml private
