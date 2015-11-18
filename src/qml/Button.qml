@@ -9,7 +9,7 @@ MouseArea {
     property color color: Theme.textColor
     property color highlightColor: Theme.highlightTextColor
 
-    width: Screen.width / 3
+    width: Math.min(Screen.width, Screen.height) / 3
     implicitHeight: column.height + 2 * Theme.paddingSize
 
     Column {
