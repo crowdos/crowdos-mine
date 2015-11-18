@@ -104,6 +104,7 @@ Item {
             comp.ownedByUs = true
             if (page.status == Component.Error) {
                 console.log(page.errorString())
+                comp.destroy()
                 return
             }
         } else if (typeof page == "string") {
