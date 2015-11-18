@@ -12,7 +12,7 @@ Column {
     property string valueText: qsTr("%1%").arg(progressValue.toFixed())
     property alias label: labelLabel.text
 
-    width: parent.width
+    width: Math.max(Screen.width, Screen.height) / 2
     spacing: Theme.paddingSizeSmall
 
     property real __indicatorWidth: (groove.width * progressValue) / (maximumValue - minimumValue + 1)
