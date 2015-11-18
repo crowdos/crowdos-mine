@@ -43,19 +43,6 @@ Page {
                 indeterminate: true
                 label: qsTr("Indeterminate")
             }
-/*
-            BusyIndicator {
-                size: Theme.itemSize
-                running: true
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            BusyIndicator {
-                size: Theme.itemSizeLarge
-                running: true
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-*/
         }
     }
 }
