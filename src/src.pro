@@ -27,12 +27,14 @@ HEADERS += declarativeplugin.h \
 target.path = $${INSTALL_PATH}
 
 qml.files = qml/qmldir \
+            qml/Action.qml \
             qml/ApplicationWindow.qml \
             qml/BackgroundItem.qml \
             qml/BusyIndicator.qml \
             qml/Button.qml \
             qml/ContextMenu.qml \
             qml/GlowItem.qml \
+            qml/IconButton.qml \
             qml/Icon.qml \
             qml/Label.qml \
             qml/ListItem.qml \
@@ -42,6 +44,7 @@ qml.files = qml/qmldir \
             qml/PageMenu.qml \
             qml/Page.qml \
             qml/PageStack.qml \
+            qml/ProgressBar.qml \
             qml/Slider.qml \
             qml/Switch.qml \
             qml/TextSwitch.qml \
