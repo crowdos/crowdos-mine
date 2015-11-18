@@ -8,23 +8,15 @@ Item {
 
     property alias depth: stack.size
 
-    readonly property bool busy: animation.running
     property variant __cache: []
 
     Stack {
         id: stack
     }
 
-    function completeAnimation() {
-        if (busy) {
-            animation.complete()
-         }
-    }
-
     function clear() {
         while (depth > 0) {
             __pop(true)
-            completeAnimation()
         }
     }
 
@@ -33,10 +25,6 @@ Item {
     }
 
     function pop(page, immediate) {
-        if (busy) {
-            console.log("An animation is already running")
-            return null
-        }
         if (depth < 1) {
             console.log("Cannot pop the first page or an empty stack")
             return null
@@ -67,7 +55,6 @@ Item {
 
         while (stack.size > x) {
             __pop(true)
-            completeAnimation()
         }
 
         __pop(false)
@@ -75,11 +62,8 @@ Item {
 
     function __pop(immediate) {
         var comp = stack.pop()
-        animation.from = comp.page.x
-        animation.to = immediate == true ? 0 : window.width
-        animation.comp = comp
-        animation.target = comp.page
-        animation.start()
+        comp.page.x = immediate == true ? 0 : window.width
+        comp.page.popAnimation.start()
     }
 
     function push(page, properties, immediate) {
@@ -88,11 +72,6 @@ Item {
             return
         }
  // TODO: handle arrays
-        if (busy) {
-            console.log("An animation is already running")
-            return null
-        }
-
         var comp = wrapper.createObject(window)
         if (properties == null) {
             properties = {}
@@ -120,16 +99,20 @@ Item {
             comp.ownedByUs = false
         }
 
+        comp.page.popAnimation.stopped.connect(function() {
+            if (comp.ownedByUs) {
+                comp.page.destroy()
+            } else {
+                comp.page.parent = comp.originalParent
+            }
+            comp.destroy()
+            comp = null
+        })
+
         comp.page.parent = window
         comp.page.x = immediate == true ? 0 : window.width
-        comp.page.y = 0
-        comp.page.width = Qt.binding(function() { return window.width })
-        comp.page.height = Qt.binding(function() { return window.height })
-        animation.target = comp.page
-        animation.from = comp.page.x
-        animation.to = 0
-        animation.comp = null
-        animation.start()
+        comp.page.pushAnimation.start()
+
         stack.push(comp)
 
         return comp.page
@@ -163,25 +146,6 @@ Item {
             property Item originalParent
             property Page page
             property bool ownedByUs
-        }
-    }
-
-    property variant animation: PropertyAnimation {
-        property QtObject comp
-        property: "x"
-        duration: Theme.animationDurationFast
-        alwaysRunToEnd: true
-        onRunningChanged: {
-            if (!running && comp) {
-                target = null
-                if (comp.ownedByUs) {
-                    comp.page.destroy()
-                } else {
-                    comp.page.parent = comp.originalParent
-                }
-                comp.destroy()
-                comp = null
-            }
         }
     }
 }

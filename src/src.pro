@@ -16,7 +16,6 @@ SOURCES += declarativeplugin.cpp \
            declarativeicon.cpp
 
 HEADERS += declarativeplugin.h \
-           pagestatus.h \
            declarativetheme.h \
            declarativeimageprovider.h \
            qrangemodel.h \

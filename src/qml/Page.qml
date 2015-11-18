@@ -4,18 +4,33 @@ import "private"
 
 MouseArea {
     id: page
- // TODO:
-    readonly property int status: PageStatus.Inactive
+
     property bool backNavigation: true
 
     property Item __menu: null
 
+    y: 0
+    width: pageStack.window.width
+    height: pageStack.window.height
     visible: opacity > 0
     opacity: pageStack.currentPage == page ? 1.0 : 0.0
 
     Behavior on opacity {
-        enabled: pageStack.depth > 1
         NumberAnimation { duration: Theme.animationDurationFast }
+    }
+
+    property QtObject popAnimation: PropertyAnimation {
+        target: page
+        properties: "x"
+        to: -pageStack.window.height
+        duration: Theme.animationDurationFast
+    }
+
+   property QtObject pushAnimation: PropertyAnimation {
+        target: page
+        properties: "x"
+        to: 0
+        duration: Theme.animationDurationFast
     }
 
     drag {

@@ -2,7 +2,6 @@
 #include <QtQml>
 #include <QQmlEngine>
 #include "qrangemodel.h"
-#include "pagestatus.h"
 #include "declarativetheme.h"
 #include "declarativeimageprovider.h"
 #include "minversemousearea.h"
@@ -28,7 +27,6 @@ void DeclarativePlugin::registerTypes(const char *uri) {
   qmlRegisterType<MInverseMouseArea>(URI, MAJOR, MINOR, "InverseMouseArea");
   qmlRegisterType<DeclarativeStack>(URI, MAJOR, MINOR, "Stack");
   qmlRegisterType<QRangeModel>(URI, MAJOR, MINOR, "RangeModel");
-  qmlRegisterUncreatableType<PageStatus>(URI, MAJOR, MINOR, "PageStatus", "");
   qmlRegisterSingletonType<DeclarativeTheme>(URI, MAJOR, MINOR, "Theme",
 					     DeclarativeTheme::instance);
   qmlRegisterSingletonType<DeclarativeScreen>(URI, MAJOR, MINOR, "Screen",
