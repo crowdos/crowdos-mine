@@ -15,7 +15,7 @@ MouseArea {
     property string valueIndicatorText: range.value
     property alias handleVisible: knob.visible
 
-    width: parent.width
+    width: Math.max(Screen.width, Screen.height) / 2
     height: label.visible ? Theme.itemSize + label.height : Theme.itemSize
 
     drag {
