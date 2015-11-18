@@ -3,8 +3,7 @@
 DeclarativeStack::DeclarativeStack(QObject *parent) :
   QObject(parent),
   m_cur(0),
-  m_prev(0),
-  m_next(0) {
+  m_prev(0) {
 
 }
 
@@ -18,10 +17,6 @@ int DeclarativeStack::size() const {
 
 QObject *DeclarativeStack::currentItem() const {
   return m_cur;
-}
-
-QObject *DeclarativeStack::nextItem() const {
-  return m_next;
 }
 
 QObject *DeclarativeStack::previousItem() const {

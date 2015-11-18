@@ -9,7 +9,6 @@ class DeclarativeStack : public QObject {
 
   Q_PROPERTY(int size READ size NOTIFY sizeChanged);
   Q_PROPERTY(QObject *currentItem READ currentItem NOTIFY currentItemChanged);
-  Q_PROPERTY(QObject *nextItem READ nextItem NOTIFY nextItemChanged);
   Q_PROPERTY(QObject *previousItem READ previousItem NOTIFY previousItemChanged);
 
 public:
@@ -20,8 +19,6 @@ public:
 
   QObject *currentItem() const;
   void setCurrentItem(QObject *item);
-
-  QObject *nextItem() const;
 
   QObject *previousItem() const;
   void setPreviousItem(QObject *item);
@@ -35,12 +32,11 @@ public slots:
 signals:
   void sizeChanged();
   void currentItemChanged();
-  void nextItemChanged();
   void previousItemChanged();
 
 private:
   std::deque<QObject *> m_items;
-  QObject *m_cur, *m_prev, *m_next;
+  QObject *m_cur, *m_prev;
 };
 
 #endif /* DECLARATIVE_STACK_H */
