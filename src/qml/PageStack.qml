@@ -110,6 +110,7 @@ Item {
         } else if (typeof page == "string") {
             // String
             var cached = __lookup(page)
+            comp.destroy()
             return push(cached, properties, immediate)
         } else {
             // An Item
