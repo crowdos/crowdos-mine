@@ -22,6 +22,7 @@ Page {
                 value: 30
                 handleVisible: handleVisibleSwitch.checked
                 valueIndicatorVisible: valueIndicatorVisibleSwitch.checked
+                anchors.horizontalCenter: parent.horizontalCenter
             }
 
             TextSwitch {
@@ -47,8 +48,8 @@ Page {
                 handleVisible: true
                 valueIndicatorVisible: true
                 valueIndicatorText: qsTr("Selected value is %1").arg(value)
+                anchors.horizontalCenter: parent.horizontalCenter
             }
-
         }
     }
 }
