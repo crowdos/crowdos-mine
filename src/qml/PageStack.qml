@@ -1,6 +1,5 @@
 import QtQuick 2.5
 import Crowd.Mine 1.0
-import "PageStack.js" as Cache
 
 Item {
     property Item window
@@ -10,7 +9,7 @@ Item {
     property alias depth: stack.size
 
     readonly property bool busy: animation.running
-//    property variant __cache: []
+    property variant __cache: []
 
     Stack {
         id: stack
@@ -109,7 +108,7 @@ Item {
             }
         } else if (typeof page == "string") {
             // String
-            var cached = Cache.__lookup(page)
+            var cached = __lookup(page)
             return push(cached, properties, immediate)
         } else {
             // An Item
@@ -133,7 +132,7 @@ Item {
 
         return comp.page
     }
-/*
+
     function __lookup(page) {
             if (__cache == undefined) {
                 __cache = new Array
@@ -156,7 +155,7 @@ Item {
 
             return __cache[page];
     }
-*/
+
     property Component wrapper: Component {
         QtObject {
             property Item originalParent

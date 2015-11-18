@@ -28,7 +28,6 @@ HEADERS += declarativeplugin.h \
 target.path = $${INSTALL_PATH}
 
 qml.files = qmldir \
-            qml/PageStack.js \
             qml/ApplicationWindow.qml \
             qml/BackgroundItem.qml \
             qml/BusyIndicator.qml \
