@@ -8,6 +8,7 @@
 #include "declarativestack.h"
 #include "declarativescreen.h"
 #include "declarativeicon.h"
+#include "declarativecolorconverter.h"
 
 #define URI   "Crowd.Mine"
 #define MAJOR 1
@@ -23,6 +24,7 @@ void DeclarativePlugin::registerTypes(const char *uri) {
 
   Q_ASSERT(uri == QLatin1String(URI));
 
+  qmlRegisterType<DeclarativeColorConverter>(URI, MAJOR, MINOR, "ColorConverter");
   qmlRegisterType<DeclarativeIcon>(URI, MAJOR, MINOR, "IconImage");
   qmlRegisterType<MInverseMouseArea>(URI, MAJOR, MINOR, "InverseMouseArea");
   qmlRegisterType<DeclarativeStack>(URI, MAJOR, MINOR, "Stack");

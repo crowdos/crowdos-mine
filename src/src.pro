@@ -13,7 +13,8 @@ SOURCES += declarativeplugin.cpp \
            minversemousearea.cpp \
            declarativestack.cpp \
            declarativescreen.cpp \
-           declarativeicon.cpp
+           declarativeicon.cpp \
+           declarativecolorconverter.cpp
 
 HEADERS += declarativeplugin.h \
            declarativetheme.h \
@@ -22,7 +23,8 @@ HEADERS += declarativeplugin.h \
            minversemousearea.h \
            declarativestack.h \
            declarativescreen.h \
-           declarativeicon.h
+           declarativeicon.h \
+           declarativecolorconverter.h
 
 target.path = $${INSTALL_PATH}
 

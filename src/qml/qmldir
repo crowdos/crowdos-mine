@@ -5,6 +5,7 @@ ApplicationWindow 1.0 ApplicationWindow.qml
 BackgroundItem 1.0 BackgroundItem.qml
 BusyIndicator 1.0 BusyIndicator.qml
 Button 1.0 Button.qml
+ColorPicker 1.0 ColorPicker.qml
 ContextMenu 1.0 ContextMenu.qml
 GlowItem 1.0 GlowItem.qml
 Icon 1.0 Icon.qml
