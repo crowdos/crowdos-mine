@@ -3,7 +3,8 @@ import Crowd.Mine 1.0
 
 // TODO: date formatting
 // TODO: 12/24 hours/am pm
-// TODO: minutes selector not working
+// TODO: indicators
+
 Item {
     id: picker
 
@@ -12,8 +13,6 @@ Item {
     property int hour: time.getHours()
     property int minute: time.getMinutes()
     property date time: new Date()
-
-Component.onCompleted: console.log(hour + " " + minute + " " + time)
 
     property bool __showHours: true
 
@@ -162,6 +161,32 @@ Component.onCompleted: console.log(hour + " " + minute + " " + time)
                 radiusX: minutesView.radius
                 radiusY: minutesView.radius
                 useLargeArc: false
+            }
+        }
+
+        MouseArea {
+            id: mouse
+            preventStealing: true
+            anchors.fill: parent
+            enabled: !__showHours
+            onPressed: calculateMinute(mouse.x, mouse.y)
+            onPositionChanged: calculateMinute(mouse.x, mouse.y)
+
+            function calculateMinute(x, y) {
+                y -= mouse.height / 2
+                y *= -1
+                x -= mouse.width / 2
+
+                var tan = y / x
+                var angle = Math.atan(tan) * 180 / Math.PI
+                if (x < 0)  {
+                    angle += 180
+                } else if (y < 0) {
+                    angle += 360
+                }
+
+                angle = Math.round(60 - (((angle - 90) / 360) * 60)) % 60
+                picker.minute = angle
             }
         }
     }
