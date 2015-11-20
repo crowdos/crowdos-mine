@@ -14,7 +14,8 @@ SOURCES += declarativeplugin.cpp \
            declarativestack.cpp \
            declarativescreen.cpp \
            declarativeicon.cpp \
-           declarativecolorconverter.cpp
+           declarativecolorconverter.cpp \
+           declarativemousegrabdetector.cpp
 
 HEADERS += declarativeplugin.h \
            declarativetheme.h \
@@ -24,7 +25,8 @@ HEADERS += declarativeplugin.h \
            declarativestack.h \
            declarativescreen.h \
            declarativeicon.h \
-           declarativecolorconverter.h
+           declarativecolorconverter.h \
+           declarativemousegrabdetector.h
 
 target.path = $${INSTALL_PATH}
 

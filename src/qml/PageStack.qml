@@ -2,6 +2,7 @@ import QtQuick 2.5
 import Crowd.Mine 1.0
 
 Item {
+    id: root
     property Item window
     readonly property Item currentPage: stack.currentItem ? stack.currentItem.page : null
     readonly property Item previousPage: stack.previousItem ? stack.previousItem.page : null
@@ -9,6 +10,13 @@ Item {
     property alias depth: stack.size
 
     property variant __cache: []
+
+    property alias _mouseGrabbed: grabDetector.mouseGrabbed
+
+    MouseGrabDetector {
+        id: grabDetector
+        currentPage: root.currentPage
+    }
 
     Stack {
         id: stack

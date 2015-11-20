@@ -36,7 +36,7 @@ MouseArea {
     drag {
         minimumX: 0
         maximumX: width
-        target: pageStack.depth > 1 && __menu == null && backNavigation ? page : null
+        target: !pageStack._mouseGrabbed && pageStack.depth > 1 && __menu == null && backNavigation ? page : null
         axis: "XAxis"
         filterChildren: true
         threshold: Theme.actionThreshold / 2
