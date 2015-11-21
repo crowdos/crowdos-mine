@@ -30,6 +30,7 @@ class DeclarativeTheme : public QObject {
   Q_PROPERTY(qreal animationDuration READ animationDuration NOTIFY animationDurationChanged);
   Q_PROPERTY(qreal animationDurationSlow READ animationDurationSlow NOTIFY animationDurationChanged);
   Q_PROPERTY(qreal actionThreshold READ actionThreshold NOTIFY actionThresholdChanged);
+  Q_PROPERTY(qreal dimmedItemOpacity READ dimmedItemOpacity NOTIFY dimmedItemOpacityChanged);
 
 public:
   static QObject *instance(QQmlEngine *engine, QJSEngine *scriptEngine);
@@ -62,6 +63,8 @@ public:
   qreal animationDurationSlow() const;
   qreal actionThreshold() const;
 
+  qreal dimmedItemOpacity() const;
+
 signals:
   void colorsChanged();
   void fontSizeChanged();
@@ -70,6 +73,7 @@ signals:
   void paddingSizeChanged();
   void animationDurationChanged();
   void actionThresholdChanged();
+  void dimmedItemOpacityChanged();
 };
 
 #endif /* DECLARATIVE_THEME_H */

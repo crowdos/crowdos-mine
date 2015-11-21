@@ -98,3 +98,7 @@ qreal DeclarativeTheme::animationDurationSlow() const {
 qreal DeclarativeTheme::actionThreshold() const {
   return 50;
 }
+
+qreal DeclarativeTheme::dimmedItemOpacity() const {
+  return 0.5f;
+}

@@ -48,7 +48,7 @@ MineFlickable {
                     color: modelData.enabled && parent.down ? Theme.highlightTextColor : Theme.textColor
                     anchors.centerIn: parent
                     text: modelData.text
-                    opacity: modelData.enabled ? 1.0 : 0.5
+                    opacity: modelData.enabled ? 1.0 : Theme.dimmedItemOpacity
                 }
             }
         }
