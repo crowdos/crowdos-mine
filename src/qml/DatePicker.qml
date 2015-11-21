@@ -17,14 +17,19 @@ Item {
 
     property Component delegate: Component {
         Label {
+            property bool isCurrentDay: picker.day == day &&
+                picker.month == month &&
+                picker.year == year
             width: parent ? parent.width / 7 : 0
             height: width
+            color: isCurrentDay ? Theme.highlightTextColor : Theme.textColor
             // TODO: formatting
             text: day
             opacity: currentMonth ? 1.0 : Theme.dimmedItemOpacity
             font.pixelSize: Theme.fontSizeSmall
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
