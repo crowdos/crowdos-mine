@@ -5,6 +5,8 @@
 enum {
   CurrentMonthRole = Qt::UserRole + 1,
   DayRole = Qt::UserRole + 2,
+  MonthRole = Qt::UserRole + 3,
+  YearRole = Qt::UserRole + 4,
 };
 
 DeclarativeDateModel::DeclarativeDateModel(QObject *parent) :
@@ -98,6 +100,12 @@ QVariant DeclarativeDateModel::data(const QModelIndex& index, int role) const {
   case DayRole:
     return m_items[index.row()].day;
 
+  case MonthRole:
+    return m_month;
+
+  case YearRole:
+    return m_year;
+
   default:
     break;
   }
@@ -110,6 +118,8 @@ QHash<int, QByteArray> DeclarativeDateModel::roleNames() const {
 
   roles[CurrentMonthRole] = "currentMonth";
   roles[DayRole] = "day";
+  roles[MonthRole] = "month";
+  roles[YearRole] = "year";
 
   return roles;
 }
