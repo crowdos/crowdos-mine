@@ -21,8 +21,7 @@ Item {
             height: width
             // TODO: formatting
             text: day
-            // TODO: color
-            color: currentMonth ? Theme.textColor: Theme.highlightTextColor
+            opacity: currentMonth ? 1.0 : Theme.dimmedItemOpacity
             font.pixelSize: Theme.fontSizeSmall
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
