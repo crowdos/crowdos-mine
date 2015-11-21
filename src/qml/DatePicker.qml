@@ -15,6 +15,8 @@ Item {
     property int year: date.getFullYear()
     property date date: new Date()
 
+    property variant _locale: Qt.locale("C") // TODO: use current locale
+
     function setDate(day, month, year) {
         picker.day = day
         picker.month = month
@@ -58,10 +60,32 @@ Item {
 
     Column {
         width: parent.width
+
         Label {
             width: parent.width
+            property string _monthName: _locale.standaloneMonthName(view.currentItem.month - 1)
+            property string _yearName: view.currentItem.year
             // TODO: formatting
-            text: qsTr("%1, %2").arg("").arg(view.currentItem ? view.currentItem.year : "")
+            text: qsTr("%1 %2").arg(_monthName).arg(_yearName)
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: Theme.fontSizeSmall
+        }
+
+        Row {
+            width: parent.width
+
+            Flow {
+                width: parent.width
+                Repeater {
+                    model: 7
+                    delegate: Label {
+                        width: parent.width / 7
+                        text: _locale.dayName(modelData, Locale.ShortFormat)
+                        font.pixelSize: Theme.fontSizeSmall
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                }
+            }
         }
 
         MineListView {
@@ -77,7 +101,8 @@ Item {
             currentIndex: mainModel.indexForDate(picker.month, picker.year)
             delegate: Item {
                 id: item
-                property int year: dateModel.year
+                property alias year: dateModel.year
+                property alias month: dateModel.month
                 width: ListView.view.width
                 height: ListView.view.height
                 DateModel {
@@ -89,8 +114,6 @@ Item {
 
                 Flow {
                     width: parent.width
-                    property alias year: dateModel.year
-                    property alias month: dateModel.month
                     Repeater {
                         model: dateModel
                         delegate: picker.delegate
