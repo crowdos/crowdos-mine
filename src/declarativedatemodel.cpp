@@ -101,10 +101,10 @@ QVariant DeclarativeDateModel::data(const QModelIndex& index, int role) const {
     return m_items[index.row()].day;
 
   case MonthRole:
-    return m_month;
+    return m_items[index.row()].month;
 
   case YearRole:
-    return m_year;
+    return m_items[index.row()].year;
 
   default:
     break;
@@ -178,6 +178,8 @@ void DeclarativeDateModel::recalculate() {
     DeclarativeDateModelItem item;
     item.isCurrentMonth = false;
     item.day = previousDate.day();
+    item.month = previousDate.month();
+    item.year = previousDate.year();
     previousDate = previousDate.addDays(1);
     items.push_back(item);
   }
@@ -186,6 +188,8 @@ void DeclarativeDateModel::recalculate() {
     DeclarativeDateModelItem item;
     item.isCurrentMonth = true;
     item.day = x;
+    item.month = m_month;
+    item.year = m_year;
     date = date.addDays(1);
     items.push_back(item);
   }
@@ -197,6 +201,8 @@ void DeclarativeDateModel::recalculate() {
       DeclarativeDateModelItem item;
       item.isCurrentMonth = false;
       item.day = date.day();
+      item.month = date.month();
+      item.year = date.year();
       date = date.addDays(1);
       items.push_back(item);
     }

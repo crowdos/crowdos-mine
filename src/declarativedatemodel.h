@@ -56,6 +56,8 @@ private:
   struct DeclarativeDateModelItem {
     bool isCurrentMonth;
     int day;
+    int month;
+    int year;
   };
 
   std::deque<DeclarativeDateModelItem> m_items;
