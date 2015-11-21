@@ -1,6 +1,8 @@
 import QtQuick 2.5
 import Crowd.Mine 1.0
 
+// TODO: A way to jump to today
+// TODO: A way to flick through years fast
 Item {
     id: picker
 
@@ -33,7 +35,6 @@ Item {
             width: parent ? parent.width / 7 : 0
             height: width
             color: isCurrentDay ? Theme.highlightTextColor : Theme.textColor
-            // TODO: formatting
             text: day
             opacity: currentMonth ? 1.0 : Theme.dimmedItemOpacity
             font.pixelSize: Theme.fontSizeSmall
@@ -65,7 +66,6 @@ Item {
             width: parent.width
             property string _monthName: _locale.standaloneMonthName(view.currentItem.month - 1)
             property string _yearName: view.currentItem.year
-            // TODO: formatting
             text: qsTr("%1 %2").arg(_monthName).arg(_yearName)
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: Theme.fontSizeSmall
