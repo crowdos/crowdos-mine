@@ -10,13 +10,34 @@ Item {
     property int firstYear: 1800
     property int lastYear: 2200
 
-// TODO: make inner delegate configurable
 // TODO: API
 // TODO: today's date
     property int day: date.getDate()
     property int month: date.getMonth() + 1
     property int year: date.getFullYear()
     property date date: new Date()
+
+    property Component delegate: Component {
+        Label {
+            width: parent ? parent.width / 7 : 0
+            height: width
+            // TODO: formatting
+            text: day
+            // TODO: color
+            color: currentMonth ? Theme.textColor: Theme.highlightTextColor
+            font.pixelSize: Theme.fontSizeSmall
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    picker.day = day
+                    picker.month = dateModel.month
+                    picker.year = dateModel.year
+                }
+            }
+        }
+    }
 
     readonly property int _months: 12 *(picker.lastYear - picker.firstYear + 1)
 
@@ -64,25 +85,7 @@ Item {
                     width: parent.width
                     Repeater {
                         model: dateModel
-                        delegate: Label {
-                            width: item.width / 7
-                            height: width
-                            // TODO: formatting
-                            text: day
-                            // TODO: color
-                            color: currentMonth ? Theme.textColor: Theme.highlightTextColor
-                            font.pixelSize: Theme.fontSizeSmall
-                            verticalAlignment: Text.AlignVCenter
-                            horizontalAlignment: Text.AlignHCenter
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    picker.day = day
-                                    picker.month = dateModel.month
-                                    picker.year = dateModel.year
-                                }
-                            }
-                        }
+                        delegate: picker.delegate
                     }
                 }
             }
