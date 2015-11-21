@@ -1,5 +1,6 @@
 #include "declarativedatemodel.h"
 #include <QDate>
+#include <QQmlInfo>
 
 enum {
   CurrentMonthRole = Qt::UserRole + 1,
@@ -118,7 +119,16 @@ int DeclarativeDateModel::indexForDate(int month, int year) {
     return -1;
   }
 
-  // TODO: is year > m_firstYear ?
+  if (year < m_firstYear) {
+    qmlInfo(this) << "Year " << year << " be less than " << m_firstYear;
+    return -1;
+  }
+
+  if (month < 1 || month > 12) {
+    qmlInfo(this) << "Month " << month << " is invalid";
+    return -1;
+  }
+
   return (year - m_firstYear) * 12 + month - 1;
 }
 
@@ -129,12 +139,18 @@ void DeclarativeDateModel::recalculate() {
     return;
   }
 
-  int year = m_firstYear + m_currentIndex / 12;
-  if (year > m_lastYear) {
-    // TODO:
-    //    qDebug() << "Invalid year";
+  if (m_lastYear <= m_firstYear) {
+    qmlInfo(this) << "last year " << m_lastYear << " must be greater than first year " << m_firstYear;
     return;
   }
+
+  int maxIndex = (m_lastYear - m_firstYear + 1) * 12;
+  if (m_currentIndex < 0 || m_currentIndex > maxIndex) {
+    qmlInfo(this) << "currentIndex " << m_currentIndex << " is not within range 0 to " << maxIndex;
+    return;
+  }
+
+  int year = m_firstYear + m_currentIndex / 12;
 
   setYear(year);
   int month = (m_currentIndex % 12) + 1;

@@ -10,8 +10,6 @@ Item {
     property int firstYear: 1800
     property int lastYear: 2200
 
-// TODO: API
-// TODO: today's date
     property int day: date.getDate()
     property int month: date.getMonth() + 1
     property int year: date.getFullYear()
