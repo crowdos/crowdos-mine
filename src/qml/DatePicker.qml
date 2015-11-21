@@ -29,8 +29,8 @@ Item {
                 anchors.fill: parent
                 onClicked: {
                     picker.day = day
-                    picker.month = parent.parent.month
-                    picker.year = parent.parent.year
+                    picker.month = month
+                    picker.year = year
                 }
             }
         }
