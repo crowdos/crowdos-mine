@@ -10,6 +10,7 @@
 #include "declarativeicon.h"
 #include "declarativecolorconverter.h"
 #include "declarativemousegrabdetector.h"
+#include "declarativedatemodel.h"
 
 #define URI   "Crowd.Mine"
 #define MAJOR 1
@@ -25,6 +26,7 @@ void DeclarativePlugin::registerTypes(const char *uri) {
 
   Q_ASSERT(uri == QLatin1String(URI));
 
+  qmlRegisterType<DeclarativeDateModel>(URI, MAJOR, MINOR, "DateModel");
   qmlRegisterType<DeclarativeMouseGrabDetector>(URI, MAJOR, MINOR, "MouseGrabDetector");
   qmlRegisterType<DeclarativeColorConverter>(URI, MAJOR, MINOR, "ColorConverter");
   qmlRegisterType<DeclarativeIcon>(URI, MAJOR, MINOR, "IconImage");

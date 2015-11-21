@@ -7,6 +7,7 @@ BusyIndicator 1.0 BusyIndicator.qml
 Button 1.0 Button.qml
 ColorPicker 1.0 ColorPicker.qml
 TimePicker 1.0 TimePicker.qml
+DatePicker 1.0 DatePicker.qml
 ContextMenu 1.0 ContextMenu.qml
 GlowItem 1.0 GlowItem.qml
 Icon 1.0 Icon.qml
