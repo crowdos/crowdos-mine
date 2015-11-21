@@ -23,7 +23,7 @@ MouseArea {
     property QtObject popAnimation: PropertyAnimation {
         target: page
         properties: "x"
-        to: -pageStack.window.height
+        to: pageStack.window.width
         duration: Theme.animationDurationFast
     }
 
