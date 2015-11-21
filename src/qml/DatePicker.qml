@@ -15,6 +15,14 @@ Item {
     property int year: date.getFullYear()
     property date date: new Date()
 
+    function setDate(day, month, year) {
+        picker.day = day
+        picker.month = month
+        picker.year = year
+
+        view.currentIndex = mainModel.indexForDate(picker.month, picker.year)
+    }
+
     property Component delegate: Component {
         Label {
             property bool isCurrentDay: picker.day == day &&
@@ -32,11 +40,7 @@ Item {
 
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
-                    picker.day = day
-                    picker.month = month
-                    picker.year = year
-                }
+                onClicked: picker.setDate(day, month, year)
             }
         }
     }
