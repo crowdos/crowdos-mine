@@ -29,8 +29,8 @@ Item {
                 anchors.fill: parent
                 onClicked: {
                     picker.day = day
-                    picker.month = dateModel.month
-                    picker.year = dateModel.year
+                    picker.month = parent.parent.month
+                    picker.year = parent.parent.year
                 }
             }
         }
@@ -80,6 +80,8 @@ Item {
 
                 Flow {
                     width: parent.width
+                    property alias year: dateModel.year
+                    property alias month: dateModel.month
                     Repeater {
                         model: dateModel
                         delegate: picker.delegate
