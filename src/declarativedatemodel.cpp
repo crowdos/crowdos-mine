@@ -160,7 +160,20 @@ void DeclarativeDateModel::recalculate() {
     DeclarativeDateModelItem item;
     item.isCurrentMonth = true;
     item.day = x;
+    date = date.addDays(1);
     items.push_back(item);
+  }
+
+  // Fill in the rest of the row:
+  // Because date points to the first day of next month
+  if (date.dayOfWeek() != 1) {
+    for (int x = date.dayOfWeek(); x <= 7; x++) {
+      DeclarativeDateModelItem item;
+      item.isCurrentMonth = false;
+      item.day = date.day();
+      date = date.addDays(1);
+      items.push_back(item);
+    }
   }
 
   beginResetModel();
