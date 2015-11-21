@@ -13,7 +13,8 @@ MouseArea {
     width: pageStack.window.width
     height: pageStack.window.height
     visible: opacity > 0
-    opacity: pageStack.currentPage == page ? 1.0 : 0.0
+    opacity: pageStack.previousPage == page && pageStack.currentPage.x != 0 ?
+        pageStack.currentPage.x / pageStack.currentPage.width : pageStack.currentPage == page ? 1.0 : 0.0
 
     Behavior on opacity {
         NumberAnimation { duration: Theme.animationDurationFast }
