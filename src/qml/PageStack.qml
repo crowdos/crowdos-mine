@@ -74,8 +74,21 @@ Item {
 
     function __pop(immediate) {
         var comp = stack.pop()
-        comp.page.x = immediate == true ? 0 : window.width
-        comp.page.popAnimation.start()
+        if (immediate == true) {
+            __destroyComponent(comp)
+        } else {
+            comp.page.popAnimation.start()
+        }
+    }
+
+    function __destroyComponent(comp) {
+        if (comp.ownedByUs) {
+            comp.page.destroy()
+        } else {
+            comp.page.parent = comp.originalParent
+        }
+        comp.destroy()
+        comp = null
     }
 
     function push(page, properties, immediate) {
@@ -112,13 +125,7 @@ Item {
         }
 
         comp.page.popAnimation.stopped.connect(function() {
-            if (comp.ownedByUs) {
-                comp.page.destroy()
-            } else {
-                comp.page.parent = comp.originalParent
-            }
-            comp.destroy()
-            comp = null
+            __destroyComponent(comp)
         })
 
         comp.page.parent = window
