@@ -11,6 +11,8 @@ HeaderBase {
 
     property alias acceptText: acceptButton.text
     property alias rejectText: rejectButton.text
+    property alias title: label.text
+
     property bool canAccept: true
 
     height: Theme.itemSizeLarge // Similar to private/Header.qml
@@ -50,6 +52,19 @@ HeaderBase {
         property: "__forwardNavigation"
     }
 
+    Label {
+        id: label
+        font.pixelSize: Theme.fontSizeSmall
+        color: Theme.highlightTextColor
+
+        anchors {
+            right: parent.right
+            rightMargin: Theme.paddingSizeSmall
+            top: parent.top
+            topMargin: Theme.paddingSizeSmall
+        }
+    }
+
     Button {
         id: acceptButton
         text: qsTr("Ok")
@@ -57,7 +72,8 @@ HeaderBase {
         anchors {
             right: parent.right
             rightMargin: Theme.paddingSize
-            verticalCenter: parent.verticalCenter
+            bottom: parent.bottom
+            bottomMargin: Theme.paddingSizeSmall
         }
 
         onClicked: header.accept()
@@ -69,7 +85,8 @@ HeaderBase {
         anchors {
             left: parent.left
             leftMargin: Theme.paddingSize
-            verticalCenter: parent.verticalCenter
+            bottom: parent.bottom
+            bottomMargin: Theme.paddingSizeSmall
         }
 
         onClicked: header.reject()
