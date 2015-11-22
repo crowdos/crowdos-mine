@@ -64,6 +64,7 @@ Page {
 
             Button {
                 text: qsTr("Custom dialog")
+// TODO:
             }
         }
     }

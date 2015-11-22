@@ -4,6 +4,7 @@ import Crowd.Mine 1.0
 // Ideas from http://blog.ruslans.com/2010/12/cute-quick-colorpicker.html
 // TODO: alpha blending
 // TODO: indicators
+// TODO: when the picker is created, the final color should be the initial color
 Item {
     id: picker
 
