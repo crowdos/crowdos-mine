@@ -20,6 +20,7 @@ MouseArea {
 
     Behavior on opacity {
         NumberAnimation { duration: Theme.animationDurationFast }
+        enabled: popAnimation.running
     }
 
     property QtObject popAnimation: PropertyAnimation {
