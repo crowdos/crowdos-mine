@@ -33,6 +33,10 @@ Item {
     }
 
     function pop(page, immediate) {
+        if (immediate == undefined) {
+            immediate = false
+        }
+
         if (depth < 1) {
             console.log("Cannot pop the first page or an empty stack")
             return null
