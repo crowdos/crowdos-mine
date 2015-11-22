@@ -125,6 +125,11 @@ Item {
             }
         } else if (typeof page == "string") {
             // String
+            if (page.slice(0, 11) == "Crowd.Mine.") {
+                var str = page.slice(11) + ".qml"
+                return push(Qt.resolvedUrl(str), properties, immediate)
+            }
+
             var cached = __lookup(page)
             comp.destroy()
             return push(cached, properties, immediate)
