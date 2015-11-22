@@ -6,6 +6,8 @@ MouseArea {
     id: page
 
     property bool backNavigation: true
+    property bool __forwardNavigation: false
+    property bool __forwardPop: false
 
     property Item __menu: null
 
@@ -23,7 +25,7 @@ MouseArea {
     property QtObject popAnimation: PropertyAnimation {
         target: page
         properties: "x"
-        to: pageStack.window.width
+        to: __forwardPop ? -pageStack.window.width : pageStack.window.width
         duration: Theme.animationDurationFast
     }
 
@@ -35,7 +37,7 @@ MouseArea {
     }
 
     drag {
-        minimumX: 0
+        minimumX: __forwardNavigation ? -width : 0
         maximumX: width
         target: !pageStack._mouseGrabbed && pageStack.depth > 1 && __menu == null && backNavigation ? page : null
         axis: "XAxis"
@@ -44,10 +46,18 @@ MouseArea {
     }
 
     onReleased: {
-        if (drag.active && page.x > Theme.actionThreshold) {
-            pageStack.pop()
-        } else {
-            page.x = 0
+        if (drag.active) {
+            if (page.x > 0 && page.x > Theme.actionThreshold) {
+                __forwardPop = false
+                pageStack.pop()
+                return;
+            } else if (page.x < 0 && Math.abs(page.x) > Theme.actionThreshold) {
+                __forwardPop = true
+                pageStack.pop()
+                return;
+            }
         }
+
+        page.x = 0
     }
 }
