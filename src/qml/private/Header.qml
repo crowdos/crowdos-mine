@@ -2,15 +2,12 @@ import QtQuick 2.5
 import Crowd.Mine 1.0
 import "Utils.js" as Utils
 
-Rectangle {
+HeaderBase {
+    property Item __page
     property alias title: label.text
-    color: Theme.highlightBackgroundColor
     height: contentY >= -Theme.iconSizeSmall ? Theme.iconSizeSmall : -contentY
-    width: parent.width
     visible: title != ""
     property real topMargin: title != "" ? Theme.itemSizeLarge : 0
-
-    property Item __page
 
     MouseArea {
         id: mouse
