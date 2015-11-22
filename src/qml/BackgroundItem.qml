@@ -2,7 +2,6 @@ import QtQuick 2.5
 import Crowd.Mine 1.0
 
 MouseArea {
-    readonly property bool down: pressed && containsMouse
     default property alias children: rectangle.children
     property alias color: rectangle.color
     property alias contentItem: rectangle
@@ -14,6 +13,6 @@ MouseArea {
     Rectangle {
         id: rectangle
         anchors.fill: parent
-        color: parent.down ? Theme.highlightBackgroundColor : Theme.backgroundColor
+        color: parent.containsPress ? Theme.highlightBackgroundColor : Theme.backgroundColor
     }
 }

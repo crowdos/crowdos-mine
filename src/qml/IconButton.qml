@@ -4,7 +4,6 @@ import Crowd.Mine 1.0
 MouseArea {
     id: button
 
-    readonly property bool down: pressed && containsMouse
     property alias icon: image
 
     implicitWidth: column.width + 2 * Theme.paddingSize
@@ -18,7 +17,7 @@ MouseArea {
 
         Icon {
             id: image
-            pressed: button.down
+            pressed: button.containsPress
             width: Theme.iconSizeSmall
             height: Theme.iconSizeSmall
         }
@@ -26,7 +25,7 @@ MouseArea {
         GlowItem {
             width: parent.width
             glowRadius: height
-            color: button.down ? Theme.highlightTextColor : Theme.textColor
+            color: button.containsPress ? Theme.highlightTextColor : Theme.textColor
         }
     }
 }

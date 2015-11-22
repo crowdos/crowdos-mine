@@ -4,7 +4,6 @@ import Crowd.Mine 1.0
 MouseArea {
     id: slider
 
-    readonly property bool down: pressed && containsMouse
     property alias minimumValue: range.minimumValue
     property alias maximumValue: range.maximumValue
     property alias value: range.value
@@ -96,7 +95,7 @@ MouseArea {
         GlowItem {
             id: knob
             anchors.verticalCenter: parent.verticalCenter
-            color: slider.down ? Theme.highlightTextColor : Theme.textColor
+            color: slider.containsPress ? Theme.highlightTextColor : Theme.textColor
             x: range.position
         }
 

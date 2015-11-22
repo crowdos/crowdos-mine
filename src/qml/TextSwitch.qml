@@ -3,7 +3,7 @@ import Crowd.Mine 1.0
 
 MouseArea {
     id: root
-    readonly property bool down: pressed && containsMouse
+
     property bool automaticCheck: true
     property bool checked
     property bool busy
@@ -29,13 +29,13 @@ MouseArea {
         GlowItem {
             id: glow
             anchors.verticalCenter: parent.verticalCenter
-            overlayVisible: root.checked || root.down
+            overlayVisible: root.checked || root.containsPress
         }
 
         Label {
             id: label
             anchors.verticalCenter: parent.verticalCenter
-            color: root.down ? Theme.highlightTextColor : Theme.textColor
+            color: root.containsPress ? Theme.highlightTextColor : Theme.textColor
         }
     }
 

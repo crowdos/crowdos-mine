@@ -36,7 +36,7 @@ Rectangle {
 
         Icon {
             anchors.fill: parent
-            pressed: mouse.pressed && mouse.containsMouse
+            pressed: mouse.containsPress
         }
     }
 
