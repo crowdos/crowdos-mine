@@ -73,11 +73,23 @@ Item {
     }
 
     function __pop(immediate) {
-        var comp = stack.pop()
         if (immediate == true) {
+            var comp = stack.pop()
             __destroyComponent(comp)
         } else {
+            // We are starting the animation first before popping the component.
+            // This is because we have a Behavior enabled when the pop animation
+            // is running. If we pop off the stack first then the Behavior enabled
+            // condition will not be true.
+            var comp = stack.at(stack.size - 1)
             comp.page.popAnimation.start()
+            if (stack.size >= 2) {
+                stack.at(stack.size - 2).page.__opacity = Qt.binding(function() {
+                    return comp && comp.page ? Math.abs(comp.page.x) / comp.page.width : 1.0
+                })
+            }
+
+            stack.pop()
         }
     }
 
