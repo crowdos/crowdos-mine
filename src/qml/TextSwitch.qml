@@ -9,6 +9,7 @@ MouseArea {
     property bool busy
     property alias text: label.text
 
+    opacity: enabled ? 1.0 : Theme.dimmedItemOpacity
     width: label.width
     height: Theme.itemSize
 

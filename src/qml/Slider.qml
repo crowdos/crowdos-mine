@@ -9,6 +9,7 @@ MouseArea {
     property alias value: range.value
     property alias stepSize: range.stepSize
 
+    opacity: enabled ? 1.0 : Theme.dimmedItemOpacity
     preventStealing: true
     property alias valueIndicatorVisible: label.visible
     property string valueIndicatorText: range.value

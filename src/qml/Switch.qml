@@ -9,6 +9,7 @@ MouseArea {
     property bool busy
     property alias icon: image
 
+    opacity: enabled ? 1.0 : Theme.dimmedItemOpacity
     width: Theme.itemSize
     height: Theme.itemSize
 

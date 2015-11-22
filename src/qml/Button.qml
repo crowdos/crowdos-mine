@@ -7,6 +7,7 @@ MouseArea {
     property alias text: label.text
     property color color: Theme.textColor
     property color highlightColor: Theme.highlightTextColor
+    opacity: enabled ? 1.0 : Theme.dimmedItemOpacity
 
     width: Math.min(Screen.width, Screen.height) / 3
     implicitHeight: column.height + 2 * Theme.paddingSize

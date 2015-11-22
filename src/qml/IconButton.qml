@@ -6,6 +6,7 @@ MouseArea {
 
     property alias icon: image
 
+    opacity: enabled ? 1.0 : Theme.dimmedItemOpacity
     implicitWidth: column.width + 2 * Theme.paddingSize
     implicitHeight: column.height + 2 * Theme.paddingSize
 
