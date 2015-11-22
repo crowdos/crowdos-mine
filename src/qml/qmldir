@@ -8,6 +8,7 @@ Button 1.0 Button.qml
 ColorPicker 1.0 ColorPicker.qml
 ColorPickerDialog 1.0 ColorPickerDialog.qml
 TimePicker 1.0 TimePicker.qml
+TimePickerDialog 1.0 TimePickerDialog.qml
 DatePicker 1.0 DatePicker.qml
 DatePickerDialog 1.0 DatePickerDialog.qml
 ContextMenu 1.0 ContextMenu.qml
