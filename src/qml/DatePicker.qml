@@ -6,7 +6,7 @@ import Crowd.Mine 1.0
 Item {
     id: picker
 
-    width: Math.min(Screen.width, Screen.height)/2
+    width: Math.min(Screen.width, Screen.height)
     height: width
 
     property int firstYear: 1800
