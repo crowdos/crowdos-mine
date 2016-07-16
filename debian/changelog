@@ -1,3 +1,10 @@
+crowd-mine (0.20160716.0) unstable; urgency=medium
+
+  * [a76ec2e] require qtdeclarative5-dev (>= 5.5.1-) for building
+  * [4487800] Add gbp configuration
+
+ -- Mohammed Sameer <msameer@debian.org>  Sat, 16 Jul 2016 19:06:52 +0300
+
 crowd-mine (0.20151114.0) unstable; urgency=medium
 
   * Initial release.
